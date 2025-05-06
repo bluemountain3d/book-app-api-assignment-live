@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 // import usersRouter from './routes/usersRouter.ts';
-// import booksRouter from './routes/booksRouter.ts';
+import booksRouter from './routes/booksRouter.ts';
 // import reviewsRouter from './routes/reviewsRouter.ts';
 import { connectToDatabase } from './config/db.ts';
 
