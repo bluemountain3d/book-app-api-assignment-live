@@ -1,18 +1,18 @@
 import express from "express";
 import {
-  getAllBooks,
-  getBookById,
+  fetchAllBooks,
+  fetchBookById,
   addNewBook,
   updateBookById,
   removeBookById
-} from '../controllers/bookController.ts';
+} from '../controllers/book/bookController.ts';
 const router = express.Router();
 
 // Routes
-router.get('/', getAllBooks);
-router.get('/:id', getBookById);
-router.post('/', addNewBook);
-router.patch('/:id', updateBookById);
-router.delete('/:id', removeBookById);
+router.get('/', fetchAllBooks);
+router.get('/:id', fetchBookById);
+router.post('/', addNewBook); // Tokens
+router.patch('/:id', updateBookById); // Tokens
+router.delete('/:id', removeBookById); // Tokens
 
 export default router;
