@@ -2,17 +2,15 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 export const authenticate = (req: Request, res: Response, next: NextFunction) => {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ message: 'No token provided' });
+  if (req.cookies.acessToken === undefined) {
+    res.sendStatus(401)
+    return;
+  }
+  jwt.verify(req.cookies.accessToken, process.env.JWT_SECRET as string, function(error: jwt.VerifyErrors | null) {
+    if (error) {
+      res.status(403).json({ message: 'You have to be logged in to use this feature' });
+      return;
     }
-  
-    const token = authHeader.split(' ')[1];
-    try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
-      req.user = decoded; 
-      next();
-    } catch (error) {
-      return res.status(401).json({ message: 'Invalid token' });
-    }
+    next();
+  });
 };

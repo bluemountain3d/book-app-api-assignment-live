@@ -1,18 +1,24 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-// import usersRouter from './routes/usersRouter.ts';
+import cookieParser from 'cookie-parser'
+
+import { connectToDatabase } from './config/db.ts';
 import booksRouter from './routes/booksRouter.ts';
 import reviewsRouter from './routes/reviewsRouter.ts';
-import { connectToDatabase } from './config/db.ts';
 import userRoutes from './routes/userRouter.ts';
 import authRouter from './routes/authRouter.ts';
+
 
 const app = express();
 
 // Midlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "*", 
+  credentials: true   
+}));
+app.use(cookieParser());
 
 // Routes
 app.use('/users', userRoutes);
