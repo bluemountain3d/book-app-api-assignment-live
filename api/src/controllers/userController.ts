@@ -28,10 +28,12 @@ export const loginUser = async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    if (!user) return res.status(404).json({ message: 'User was not found' });
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Password or username is incorrect' })
+    }
 
     const token = jwt.sign(
       { id: user._id, username: user.username, is_admin: user.is_admin },
@@ -39,7 +41,14 @@ export const loginUser = async (req: Request, res: Response) => {
       { expiresIn: '1h' }
     );
 
-    return res.status(200).json({ message: 'Login successful', token, user });
+    res.cookie('accessToken', token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'none',
+      maxAge: 1000 * 60 * 60 
+    })
+    res.status(200).json({ message: `Login successful! You are logged in as ${user.username}` });
+
   } catch (error) {
     return res.status(500).json({ message: 'Error logging in user', error });
   }
@@ -47,7 +56,8 @@ export const loginUser = async (req: Request, res: Response) => {
 
 // Logga ut användare
 export const logoutUser = async (req: Request, res: Response) => {
-  return res.status(200).json({ message: 'User logged out (client should discard token)' });
+  res.clearCookie('accessToken')
+  res.json({message: 'You are logged out'})
 };
 
 // Hämta alla användare
