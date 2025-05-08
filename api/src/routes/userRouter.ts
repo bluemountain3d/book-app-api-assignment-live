@@ -1,12 +1,18 @@
 import { Router } from 'express';
-import { registerUser, loginUser } from '../controllers/userController.ts';
+import {   registerUser, loginUser, logoutUser, getAllUsers, getUserById, updateUser, deleteUser } from '../controllers/userController.ts';
+import { authenticate } from '../middleware/auth.ts';
 
 const router = Router();
 
-// POST-rutt för att registrera en användare
-router.post('/register', registerUser);
+// Autentisering
+router.post('/register', registerUser); 
+router.post('/login', loginUser); 
+router.post('/logout', logoutUser); 
 
-// POST-rutt för att logga in en användare
-router.post('/login', loginUser);
+// CRUD för users
+router.get('/', getAllUsers);
+router.get('/:id', getUserById);
+router.patch('/:id', authenticate, updateUser);  // skyddad
+router.delete('/:id', authenticate, deleteUser); // skyddad
 
 export default router;

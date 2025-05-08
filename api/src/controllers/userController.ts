@@ -2,25 +2,19 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import User from '../models/user.ts';
 import { RegisterUserBody } from '../types/user.ts';
+import jwt from 'jsonwebtoken';
 
-// Funktion för att registrera användare
+// Registrera användare
 export const registerUser = async (req: Request<{}, {}, RegisterUserBody>, res: Response) => {
   try {
     const { username, password, is_admin } = req.body;
-
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: 'Username already exists' });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = new User({
-      username,
-      password: hashedPassword,
-      is_admin,
-    });
-
+    const newUser = new User({ username, password: hashedPassword, is_admin });
     await newUser.save();
 
     return res.status(201).json({ message: 'User created successfully', user: newUser });
@@ -29,23 +23,72 @@ export const registerUser = async (req: Request<{}, {}, RegisterUserBody>, res: 
   }
 };
 
-// Funktion för att logga in en användare
+// Logga in användare
 export const loginUser = async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
-
     const user = await User.findOne({ username });
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+    if (!user) return res.status(404).json({ message: 'User not found' });
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
+    if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
 
-    return res.status(200).json({ message: 'Login successful', user });
+    const token = jwt.sign(
+      { id: user._id, username: user.username, is_admin: user.is_admin },
+      process.env.JWT_SECRET as string,
+      { expiresIn: '1h' }
+    );
+
+    return res.status(200).json({ message: 'Login successful', token, user });
   } catch (error) {
     return res.status(500).json({ message: 'Error logging in user', error });
+  }
+};
+
+// Logga ut användare
+export const logoutUser = async (req: Request, res: Response) => {
+  return res.status(200).json({ message: 'User logged out (client should discard token)' });
+};
+
+// Hämta alla användare
+export const getAllUsers = async (req: Request, res: Response) => {
+  try {
+    const users = await User.find();
+    return res.status(200).json(users);
+  } catch (error) {
+    return res.status(500).json({ message: 'Error fetching users', error });
+  }
+};
+
+// Hämta användare via ID
+export const getUserById = async (req: Request, res: Response) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).json({ message: 'Error fetching user', error });
+  }
+};
+
+// Uppdatera användare (kräver token)
+export const updateUser = async (req: Request, res: Response) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updatedUser) return res.status(404).json({ message: 'User not found' });
+    return res.status(200).json({ message: 'User updated', user: updatedUser });
+  } catch (error) {
+    return res.status(500).json({ message: 'Error updating user', error });
+  }
+};
+
+// Radera användare (kräver token)
+export const deleteUser = async (req: Request, res: Response) => {
+  try {
+    const deletedUser = await User.findByIdAndDelete(req.params.id);
+    if (!deletedUser) return res.status(404).json({ message: 'User not found' });
+    return res.status(200).json({ message: 'User deleted' });
+  } catch (error) {
+    return res.status(500).json({ message: 'Error deleting user', error });
   }
 };

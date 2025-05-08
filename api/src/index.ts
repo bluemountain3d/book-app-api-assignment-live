@@ -6,6 +6,7 @@ import booksRouter from './routes/booksRouter.ts';
 import reviewsRouter from './routes/reviewsRouter.ts';
 import { connectToDatabase } from './config/db.ts';
 import userRoutes from './routes/userRouter.ts';
+import authRouter from './routes/authRouter.ts';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(cors());
 app.use('/users', userRoutes);
 app.use('/books', booksRouter);
 app.use('/reviews', reviewsRouter);
+app.use('/auth', authRouter);
 
 // Connect to database
 connectToDatabase();
