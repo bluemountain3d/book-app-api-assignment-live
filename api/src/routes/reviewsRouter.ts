@@ -1,5 +1,6 @@
 import express from "express";
 
+import { authenticate } from "../middleware/auth.ts";
 import {getAllreviews, 
         getReviewById, 
         addNewReview, 
@@ -13,8 +14,8 @@ router.get('/', getAllreviews);
 router.get('/:id', getReviewById);
 router.post('/', addNewReview);
 
-// // (To be) Closed endpoints
-router.patch('/:id', updateReview);
-router.delete('/:id', deleteReview);
+// // Closed endpoints
+router.patch('/:id', authenticate, updateReview);
+router.delete('/:id', authenticate, deleteReview);
 
 export default router;
