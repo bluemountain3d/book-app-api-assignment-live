@@ -7,12 +7,13 @@ import {
   removeBookById
 } from '../controllers/book/bookController.ts';
 const router = express.Router();
+import { authenticate } from '../middleware/auth.ts';
 
 // Routes
 router.get('/', fetchAllBooks);
 router.get('/:id', fetchBookById);
-router.post('/', addNewBook); // Tokens
-router.patch('/:id', updateBookById); // Tokens
-router.delete('/:id', removeBookById); // Tokens
+router.post('/', authenticate, addNewBook);
+router.patch('/:id', authenticate, updateBookById);
+router.delete('/:id', authenticate, removeBookById);
 
 export default router;
