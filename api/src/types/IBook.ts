@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IReview } from ../types/IReview.ts;
+import { IReview } from "./IReview.ts";
 
 export interface IBook {
   title: string;

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import reviews from "../models/reviews.ts";
+import book from "../models/book.ts";
 
 // GET all reviews
 export const getAllreviews = async(req: Request, res: Response) => {
@@ -31,10 +32,10 @@ export const getReviewById = async (req: Request, res: Response) => {
 
 // POST new reviews
 export const addNewReview = async (req: Request, res: Response) => {
-    const { name, content, rating } = req.body;
+    const { name, content, rating, book_id } = req.body;
 
-    if (!name || !content || !rating) {
-        res.status(400).json({error: 'Name, content and rating is required'}) 
+    if (!name || !content || !rating || !book_id) {
+        res.status(400).json({error: 'Name, content, rating and book_id is required'}) 
         return; 
     }
     
@@ -45,6 +46,11 @@ export const addNewReview = async (req: Request, res: Response) => {
             rating: rating
         });
         const savedReview = await newReview.save();
+
+        await book.findByIdAndUpdate(book_id, {
+            $push: {reviews: savedReview.id}
+        })
+
         res.status(201).json({message: 'Review created', data: savedReview})
     }
     catch (error: unknown) {
