@@ -1,5 +1,19 @@
 :root {
-  --color-primary: #fff;
-  --color-secondary: #fff;
-  --color-accent: #fff;
+  --color-primary: #008187;
+  --color-primary-tint: #009DA4; // E.g. Hover state
+  --color-primary-shade: #00686D; // E.g. Active state
+
+  --color-secondary: #004B4D;
+  --color-secondary-tint: #006366;
+  --color-secondary-shade: #003233;
+
+  --color-accent: #F36632;
+  --color-accent-tint: #FE9178;
+  --color-accent-shade: #CA5328;
+
+  --color-body-text: #333333;
+  --color-subtle-text: #647879;
+  --color-background-primary: #FFF;
+  --color-background-accent: #F9FBFF;
+  --color-details: #CCDFE0;
 }
