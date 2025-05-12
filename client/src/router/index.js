@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import RegisterView from '../views/RegisterView.vue'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,10 +14,7 @@ const router = createRouter({
     {
       path: '/register',
       name: 'register',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/RegisterView.vue'),
+      component: RegisterView,
     },
     {
       path: '/login',
@@ -26,13 +25,26 @@ const router = createRouter({
       path: '/admin',
       name: 'admin',
       component: () => import('../views/AdminView.vue'),
+      meta: { requiresAdmin: true }, 
     },
     {
-      path: '/Books',
+      path: '/books',
       name: 'books',
       component: () => import('../views/BooksView.vue'),
+      meta: { requiresAdmin: true }, 
     },
   ],
+})
+
+// kontrollera om användaren är inloggad och admin
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore()
+  
+  if (to.meta.requiresAdmin && (!authStore.isLoggedIn || !authStore.isAdmin)) {
+    return next({ name: 'login' }) 
+  }
+  
+  next() 
 })
 
 export default router
