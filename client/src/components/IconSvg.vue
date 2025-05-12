@@ -35,34 +35,34 @@ export default {
 </script>
 
 <template>
+
   <svg class="icon-svg" :class="customClass" aria-hidden="true">
     <use :href="'#icon-' + name"></use>
   </svg>
+
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 
   /// Base icon class for consistent styling
   .icon-svg {
     display: inline-block;
-    width: 1em;
     height: 1em;
+    width: auto;
+    aspect-ratio: 1/1;
     fill: currentColor;
     vertical-align: middle;
 
     // Variants for different sizes
     &--sm {
-      width: 0.75em;
       height: 0.75em;
     }
 
     &--lg {
-      width: 1.5em;
       height: 1.5em;
     }
 
     &--xl {
-      width: 2em;
       height: 2em;
     }
   }
