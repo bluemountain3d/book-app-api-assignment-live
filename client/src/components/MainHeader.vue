@@ -1,6 +1,9 @@
 <script setup>
   import { RouterLink } from 'vue-router';
   import IconSvg from '@/components/IconSvg.vue';
+  import ButtonComponent from './ButtonComponent.vue';
+
+
 </script>
 
 <template>
@@ -26,9 +29,11 @@
           </li>
         </ul>
 
-        <RouterLink to="/" class="btn btn-cta">
-          Kontakt<!-- Knapp här -->
-        </RouterLink>
+        <ButtonComponent
+          class="button"
+          label="Kontakt"
+          to="/contact"
+          />
       </nav>
 
     </div>
