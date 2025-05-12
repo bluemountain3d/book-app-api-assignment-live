@@ -1,0 +1,88 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local(""), url("/font/montserrat-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local(""), url("/font/montserrat-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local(""), url("/font/montserrat-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-primary: #008187;
+  --color-primary-tint: #009DA4;
+  --color-primary-shade: #00686D;
+  --color-secondary: #004B4D;
+  --color-secondary-tint: #006366;
+  --color-secondary-shade: #003233;
+  --color-accent: #F36632;
+  --color-accent-tint: #FE9178;
+  --color-accent-shade: #CA5328;
+  --color-body-text: #333333;
+  --color-subtle-text: #647879;
+  --color-background-primary: #FFF;
+  --color-background-accent: #F9FBFF;
+  --color-details: #CCDFE0;
+}
+
+:root {
+  --font-size-100: 0.75rem;
+  --font-size-200: 0.875rem;
+  --font-size-300: 1rem;
+  --font-size-400: 1.25rem;
+  --font-size-500: 1.5rem;
+  --font-size-600: 2rem;
+  --font-size-700: 2.5rem;
+  --font-size-800: 3rem;
+  --font-size-900: 4rem;
+}
+
+html {
+  font-size: 100%;
+  line-height: 1.2;
+  font-weight: 400;
+  color: black;
+  background-color: white;
+}
+
+body {
+  font-size: 1rem;
+}
+
+main {
+  min-height: 100dvh;
+}
+
+.section {
+  width: 100%;
+  padding-block: 6vmin;
+}
+
+.container, .container-boxed {
+  width: 100%;
+  margin: 0;
+  padding: max(0.75rem, 3.125%);
+}
+
+.container-boxed {
+  margin: 0 auto;
+  padding: clamp(0.75rem, 3.125%, 2.8125rem);
+  max-width: 90rem;
+}/*# sourceMappingURL=styles.css.map */
