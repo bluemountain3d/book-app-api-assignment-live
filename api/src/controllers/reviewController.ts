@@ -32,16 +32,17 @@ export const getReviewById = async (req: Request, res: Response) => {
 
 // POST new reviews
 export const addNewReview = async (req: Request, res: Response) => {
-    const { name, content, rating, book_id } = req.body;
+    const { name, title, content, rating, book_id } = req.body;
 
-    if (!name || !content || !rating || !book_id) {
-        res.status(400).json({error: 'Name, content, rating and book_id is required'}) 
+    if (!name || !title || !content || !rating || !book_id) {
+        res.status(400).json({error: 'Name, title, content, rating and book_id is required'}) 
         return; 
     }
     
     try {
         const newReview = new reviews({
             name: name,
+            title: title,
             content: content, 
             rating: rating
         });
@@ -61,10 +62,10 @@ export const addNewReview = async (req: Request, res: Response) => {
 
 // PATCH review
 export const updateReview = async (req: Request, res: Response) => {
-    const { name, content, rating } = req.body;
+    const { name, title, content, rating } = req.body;
 
-    if (!name || !content || !rating) {
-        res.status(400).json({error: 'Name, content and rating is required'}) 
+    if (!name || !title || !content || !rating) {
+        res.status(400).json({error: 'Name, title, content and rating is required'}) 
         return; 
     }
 
@@ -73,6 +74,7 @@ export const updateReview = async (req: Request, res: Response) => {
             {_id: req.params.id},
             {$set: {
                 name: name,
+                title: title,
                 content: content, 
                 rating: rating
                 }
