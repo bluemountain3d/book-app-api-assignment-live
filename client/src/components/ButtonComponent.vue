@@ -56,19 +56,25 @@ button {
 }
 
 .CTA-button {
-  display: inline-block;
+  cursor: pointer;
+  padding: 0.75rem 2rem;
   background-color: var(--color-accent);
   border-radius: 100px;
 
-  padding: 0.5rem 1rem;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  cursor: pointer;
-  text-align: center;
-  font-size: 1rem;
   color: #fff;
+  font-size: var(--font-size-200);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
   text-decoration: none;
+  text-align: center;
+
+  transition: color .2s ease, background-color .2s ease;
 
   &:hover {
     background-color: var(--color-accent-tint);
