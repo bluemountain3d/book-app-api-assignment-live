@@ -1,6 +1,9 @@
 <script setup>
   import { RouterLink } from 'vue-router';
   import IconSvg from '@/components/IconSvg.vue';
+  import ButtonComponent from './ButtonComponent.vue';
+
+
 </script>
 
 <template>
@@ -13,6 +16,7 @@
 
       <nav class="nav">
         <ul class="nav__menu">
+          <!-- Public links always visible -->
           <li class="nav__item">
             <RouterLink to="/" class="nav__link">Hem</RouterLink>
           </li>
@@ -43,13 +47,16 @@
              <li class="nav__item">
               <RouterLink to="/register" class="nav__link">Registrera dig</RouterLink>  <!-- Lägger till en Registrera-länk -->
             </li>
+
           </template>
 
         </ul>
 
-        <RouterLink to="/" class="btn btn-cta">
-          Kontakt<!-- Knapp här -->
-        </RouterLink>
+        <ButtonComponent
+          class="button"
+          label="Kontakt"
+          to="/contact"
+          />
       </nav>
 
     </div>

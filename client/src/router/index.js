@@ -33,6 +33,11 @@ const router = createRouter({
       name: 'books',
       component: () => import('../views/BooksView.vue'),
     },
+    {
+      path: '/books/:id',
+      name: 'book',
+      component: () => import('../views/SingleBookView.vue'),
+    },
   ],
 })
 
@@ -44,9 +49,10 @@ router.beforeEach(async (to, from, next) => {
     if (!authStore.isLoggedIn || !authStore.isAdmin) {
       return next({ name: 'login' }) 
     }
+
   }
 
   next()
 })
-
 export default router
+

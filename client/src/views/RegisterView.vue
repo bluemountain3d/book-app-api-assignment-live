@@ -15,7 +15,7 @@ const register = async () => {
       password: password.value,
       is_admin: false
     })
-    
+
     alert('Registrering lyckades!')
     router.push('/login')
   } catch (error) {

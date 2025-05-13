@@ -2,7 +2,7 @@
 @font-face {
   font-family: "Montserrat";
   src: local(''),  // Try local version first (empty string checks for exact name match)
-       url('/font/montserrat-regular.woff2') format('woff2');
+       url('/fonts/montserrat-regular.woff2') format('woff2');
   font-weight: 400;  // Weight of font: Thin (100), Extra Light (200), Light (300), Regular (400), Medium (500), Semi Bold (600), Bold (700), Extra Bold (800), Black (900)
   font-style: normal;  // Options: normal, italic, oblique
   font-display: swap;  // Text remains visible during font loading
@@ -11,7 +11,7 @@
 @font-face {
   font-family: "Montserrat";
   src: local(''),
-       url('/font/montserrat-medium.woff2') format('woff2');
+       url('/fonts/montserrat-medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -20,7 +20,7 @@
 @font-face {
   font-family: "Montserrat";
   src: local(''),
-       url('/font/montserrat-bold.woff2') format('woff2');
+       url('/fonts/montserrat-bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

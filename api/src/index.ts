@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import cookieParser from 'cookie-parser'
+import cookieParser from 'cookie-parser';
 
 import { connectToDatabase } from './config/db.ts';
 import booksRouter from './routes/booksRouter.ts';
