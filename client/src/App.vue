@@ -14,6 +14,7 @@
   <RouterView />
   <MainFooter />
 
+
 </template>
 
 <style lang="scss" scoped></style>

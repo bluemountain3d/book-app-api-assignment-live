@@ -44,6 +44,10 @@
             <li class="nav__item">
               <RouterLink to="/login" class="nav__link">Logga in</RouterLink>
             </li>
+             <li class="nav__item">
+              <RouterLink to="/register" class="nav__link">Registrera dig</RouterLink>  <!-- Lägger till en Registrera-länk -->
+            </li>
+
           </template>
 
         </ul>
