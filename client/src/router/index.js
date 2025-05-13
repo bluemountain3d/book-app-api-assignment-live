@@ -25,13 +25,12 @@ const router = createRouter({
       path: '/admin',
       name: 'admin',
       component: () => import('../views/AdminView.vue'),
-      meta: { requiresAdmin: true }, 
+      meta: { requiresAdmin: true },
     },
     {
       path: '/books',
       name: 'books',
       component: () => import('../views/BooksView.vue'),
-      meta: { requiresAdmin: true }, 
     },
   ],
 })
@@ -39,12 +38,12 @@ const router = createRouter({
 // kontrollera om användaren är inloggad och admin
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
-  
+
   if (to.meta.requiresAdmin && (!authStore.isLoggedIn || !authStore.isAdmin)) {
-    return next({ name: 'login' }) 
+    return next({ name: 'login' })
   }
-  
-  next() 
+
+  next()
 })
 
 export default router
