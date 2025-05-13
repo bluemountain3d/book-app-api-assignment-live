@@ -16,6 +16,7 @@
 
       <nav class="nav">
         <ul class="nav__menu">
+          <!-- Public links always visible -->
           <li class="nav__item">
             <RouterLink to="/" class="nav__link">Hem</RouterLink>
           </li>
@@ -24,9 +25,27 @@
           </li>
 
           <!-- Only when loggen in and 'is_admin' is true -->
-          <li class="nav__item">
-            <RouterLink to="/admin" class="nav__link">Admin</RouterLink>
-          </li>
+          <template v-if="isLoggedIn">
+
+            <!-- Links visible only for admin users -->
+            <template v-if="isAdmin">
+              <li class="nav__item">
+                <RouterLink to="/admin" class="nav__link">Admin</RouterLink>
+              </li>
+              <li class="nav__item">
+                <!-- Button to logout -->
+                <button>Logga ut</button>
+              </li>
+            </template>
+          </template>
+
+          <!-- Links for non-logged-in users -->
+          <template v-else>
+            <li class="nav__item">
+              <RouterLink to="/login" class="nav__link">Logga in</RouterLink>
+            </li>
+          </template>
+
         </ul>
 
         <ButtonComponent
