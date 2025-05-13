@@ -1,8 +1,9 @@
 <script setup>
   import { ref, onMounted } from 'vue';
-  const API_URL = 'http://localhost:3000/'
+  import ButtonComponent from '@/components/ButtonComponent.vue';
+  const API_URL = import.meta.env.VITE_API_URL;
 
-  let books = ref([]);
+  const books = ref([]);
 
   onMounted( async () => {
     try {
@@ -59,10 +60,13 @@
                 </li>
               </ul>
             </section>
+
+            <ButtonComponent
+              label="Gå till boken"
+              :to="`/books/${book._id}`"
+              class="book__button"
+            />
           </section>
-
-          <!-- Add Go to book button here -->
-
         </article>
       </div>
 
@@ -73,6 +77,7 @@
 <style lang="scss" scoped>
 
 .books {
+  margin-block-end: 4rem;
 
   &__main-title {
     padding-block: 4rem;
@@ -128,6 +133,7 @@
   }
 
   &__data {
+    align-self: stretch;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -185,7 +191,10 @@
     letter-spacing: .1em;
     border-radius: .125rem;
   }
+
+  &__button {
+    margin-block-start: auto;
+    margin-inline-end: auto;
+  }
 }
-
-
 </style>
