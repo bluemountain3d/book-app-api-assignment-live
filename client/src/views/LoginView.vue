@@ -15,8 +15,13 @@ const login = async () => {
       username: username.value,
       password: password.value
     })
-
+       console.log("Login response:", res.data);  
     const { token, user } = res.data
+
+    if (!token || !user) {
+      alert('Login misslyckades. Ingen token eller användare.');
+      return;
+    }
 
     // Spara användardata och token till Pinia och localStorage
     authStore.login(user, token)
@@ -24,7 +29,12 @@ const login = async () => {
     localStorage.setItem('user', JSON.stringify(user))
     localStorage.setItem('token', token)
 
-    router.push('/') // Navigera till startsidan efter login
+    // Navigera beroende på om användaren är admin eller inte
+    if (user.is_admin) {
+      router.push('/admin') // Om admin, gå till admin-panelen
+    } else {
+      router.push('/') // Annars till startsidan
+    }
   } catch (err) {
     alert('Fel användarnamn eller lösenord')
     console.error(err)

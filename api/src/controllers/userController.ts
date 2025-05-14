@@ -23,7 +23,7 @@ export const registerUser = async (req: Request<{}, {}, RegisterUserBody>, res: 
   }
 };
 
-// Logga in användare
+// Logga in användare utan cookies (endast token i svaret)
 export const loginUser = async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
@@ -32,7 +32,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: 'Password or username is incorrect' })
+      return res.status(400).json({ message: 'Password or username is incorrect' });
     }
 
     const token = jwt.sign(
@@ -41,13 +41,8 @@ export const loginUser = async (req: Request, res: Response) => {
       { expiresIn: '1h' }
     );
 
-    res.cookie('accessToken', token, {
-      httpOnly: true,
-      secure: false,
-      sameSite: 'none',
-      maxAge: 1000 * 60 * 60 
-    })
-    res.status(200).json({ message: `Login successful! You are logged in as ${user.username}` });
+    // Skicka tillbaka både token och användardata
+    res.status(200).json({ token, user: { ...user.toObject(), password: undefined } });
 
   } catch (error) {
     return res.status(500).json({ message: 'Error logging in user', error });
