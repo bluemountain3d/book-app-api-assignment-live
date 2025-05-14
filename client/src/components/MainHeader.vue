@@ -14,8 +14,26 @@
         <IconSvg name="brand" />
       </RouterLink>
 
-      <nav class="nav">
+      <!-- <input type="checkbox" id="menu-active" class="menu-toggle-input" aria-hidden="true"/>
+
+      <div class="menu-toggle">
+        <label
+          for="menu-active"
+          class="menu-toggle__label"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label="Toggle menu"
+          tabindex="0">
+          <span class="menu-toggle__icon" aria-hidden="true">
+            <span class="menu-toggle__line"></span>
+          </span>
+          <span class="visually-hidden">Menu</span>
+        </label>
+      </div> -->
+
+      <nav id="main-navigation" class="nav">
         <ul class="nav__menu">
+
           <!-- Public links always visible -->
           <li class="nav__item">
             <RouterLink to="/" class="nav__link">Hem</RouterLink>
@@ -24,7 +42,7 @@
             <RouterLink to="/books" class="nav__link">Böcker</RouterLink>
           </li>
 
-          <!-- Only when loggen in and 'is_admin' is true -->
+          <!-- Only when loggen in -->
           <template v-if="isLoggedIn">
 
             <!-- Links visible only for admin users -->
@@ -32,11 +50,13 @@
               <li class="nav__item">
                 <RouterLink to="/admin" class="nav__link">Admin</RouterLink>
               </li>
-              <li class="nav__item">
-                <!-- Button to logout -->
-                <button>Logga ut</button>
-              </li>
             </template>
+
+            <li class="nav__item">
+              <!-- Button to logout -->
+              <a href="#">Logga ut</a>
+            </li>
+
           </template>
 
           <!-- Links for non-logged-in users -->
@@ -45,20 +65,20 @@
               <RouterLink to="/login" class="nav__link">Logga in</RouterLink>
             </li>
              <li class="nav__item">
-              <RouterLink to="/register" class="nav__link">Registrera dig</RouterLink>  <!-- Lägger till en Registrera-länk -->
+              <RouterLink to="/register" class="nav__link">Registrera dig</RouterLink>
             </li>
 
           </template>
 
         </ul>
 
+        <!-- Link to start because we don't have a contact route -->
         <ButtonComponent
-          class="button"
+          class="nav__contact"
           label="Kontakt"
-          to="/contact"
-          />
+          to="/"
+        />
       </nav>
-
     </div>
   </header>
 </template>
@@ -73,6 +93,7 @@
   ;
 
   &__inner {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,6 +116,8 @@
 
 }
 
+
+/// Legacy
 .nav {
   width: 100%;
   display: flex;
@@ -104,6 +127,7 @@
   &__menu {
     list-style: none;
     display: flex;
+    flex-flow: row nowrap;
     align-items: center;
   }
 
@@ -120,6 +144,127 @@
   &__link:hover {
     color: var(--color-accent);
   }
+
+  &__contact {
+    margin-inline-start: 1rem;
+  }
 }
+/// --------
+
+
+// .menu-toggle {
+
+//   display: inline-block;
+//   width: 3rem;
+//   height: 3rem;
+//   background-color: red;
+
+
+//   &__label {
+//     cursor: pointer;
+//     width: 100%;
+//     height: 100%;
+//     display: block;
+//   }
+
+//   &__label:hover &__line {
+//     background-color: var(--color-primary-tint);
+//   }
+
+//   &__icon {
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+//   &__line {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 100%;
+//     height: .25rem;
+//     background-color: var(--color-primary);
+//   }
+// }
+
+// .nav {
+//   display: block;
+//   position: absolute;
+//   top: 6.5rem;
+//   left: 0;
+//   width: 100%;
+//   height: calc(100dvh - 6.5rem);
+
+//   &__menu {
+//     list-style: none;
+//     display: flex;
+//     flex-flow: row nowrap;
+//     align-items: center;
+//   }
+
+//   &__item {
+//     font-size: var(--font-size-400);
+//   }
+
+//   &__link {
+//     padding: .5em 1em;
+//     text-decoration: none;
+//     color: var(--color-primary);
+//   }
+
+//   &__link:hover {
+//     color: var(--color-accent);
+//   }
+
+//   &__contact {
+//     margin-inline-start: 1rem;
+//   }
+// }
+
+
+// @media screen and (min-width: 992px) {
+
+//   .menu-toggle {
+//     display: none;
+//   }
+
+//   .nav {
+//     width: 100%;
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+
+//     &__menu {
+//       list-style: none;
+//       display: flex;
+//       flex-flow: row nowrap;
+//       align-items: center;
+//     }
+
+//     &__item {
+//       font-size: var(--font-size-400);
+//     }
+
+//     &__link {
+//       padding: .5em 1em;
+//       text-decoration: none;
+//       color: var(--color-primary);
+//     }
+
+//     &__link:hover {
+//       color: var(--color-accent);
+//     }
+
+//     &__contact {
+//       margin-inline-start: 1rem;
+//     }
+//   }
+
+// }
 
 </style>
