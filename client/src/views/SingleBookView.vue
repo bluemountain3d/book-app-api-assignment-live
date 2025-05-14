@@ -28,8 +28,6 @@ onMounted(async () => {
 
 <template>
   <BookDetails :book="book" />
-
-  <h2>Vad andra tyckte om denna bok:</h2>
   <ReviewComponent :reviews="book.reviews || []" />
 
 </template>
