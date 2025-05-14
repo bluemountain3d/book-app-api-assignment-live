@@ -37,6 +37,7 @@
                 <button>Logga ut</button>
               </li>
             </template>
+
           </template>
 
           <!-- Links for non-logged-in users -->
@@ -45,20 +46,22 @@
               <RouterLink to="/login" class="nav__link">Logga in</RouterLink>
             </li>
              <li class="nav__item">
-              <RouterLink to="/register" class="nav__link">Registrera dig</RouterLink>  <!-- Lägger till en Registrera-länk -->
+              <RouterLink to="/register" class="nav__link">Registrera dig</RouterLink>
             </li>
 
           </template>
 
+
+
         </ul>
 
+        <!-- Link to start because we don't have a contact route -->
         <ButtonComponent
-          class="button"
+          class="nav__contact"
           label="Kontakt"
-          to="/contact"
-          />
+          to="/"
+        />
       </nav>
-
     </div>
   </header>
 </template>
@@ -104,6 +107,7 @@
   &__menu {
     list-style: none;
     display: flex;
+    flex-flow: row nowrap;
     align-items: center;
   }
 
@@ -120,6 +124,19 @@
   &__link:hover {
     color: var(--color-accent);
   }
+
+  &__contact {
+    margin-inline-start: 1rem;
+  }
+}
+
+
+@media screen and (min-width: 992px) {
+
+  .nav {
+
+  }
+
 }
 
 </style>
