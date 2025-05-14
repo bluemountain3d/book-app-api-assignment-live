@@ -14,9 +14,11 @@ const login = async () => {
     const res = await axios.post('http://localhost:3000/auth/login', {
       username: username.value,
       password: password.value
-    })
-       console.log("Login response:", res.data);  
-    const { token, user } = res.data
+    });
+
+    console.log("Login response:", res.data);  // Logga hela svaret här
+
+    const { token, user } = res.data;
 
     if (!token || !user) {
       alert('Login misslyckades. Ingen token eller användare.');
@@ -24,20 +26,23 @@ const login = async () => {
     }
 
     // Spara användardata och token till Pinia och localStorage
-    authStore.login(user, token)
+    authStore.login(user, token);
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', token);
 
-    localStorage.setItem('user', JSON.stringify(user))
-    localStorage.setItem('token', token)
+    // Kontrollera om token och användardata sparades korrekt
+    console.log(localStorage.getItem('token'));  // Kontrollera token
+    console.log(localStorage.getItem('user'));   // Kontrollera användardata
 
     // Navigera beroende på om användaren är admin eller inte
     if (user.is_admin) {
-      router.push('/admin') // Om admin, gå till admin-panelen
+      router.push('/admin'); // Om admin, gå till admin-panelen
     } else {
-      router.push('/') // Annars till startsidan
+      router.push('/'); // Annars till startsidan
     }
   } catch (err) {
-    alert('Fel användarnamn eller lösenord')
-    console.error(err)
+    alert('Fel användarnamn eller lösenord');
+    console.error(err);
   }
 }
 </script>
@@ -46,7 +51,7 @@ const login = async () => {
   <div class="login-container">
     <h2>Logga in</h2>
     <form @submit.prevent="login">
-      <input v-model="username" type="email" placeholder="E-post" required />
+      <input v-model="username" type="text" placeholder="Användarnamn" required />
       <input v-model="password" type="password" placeholder="Lösenord" required />
       <button type="submit">Logga in</button>
     </form>

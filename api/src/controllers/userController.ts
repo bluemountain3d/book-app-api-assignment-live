@@ -27,11 +27,18 @@ export const registerUser = async (req: Request<{}, {}, RegisterUserBody>, res: 
 export const loginUser = async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
+    console.log('Försöker logga in med användarnamn:', username);  // Logg för felsökning
     const user = await User.findOne({ username });
-    if (!user) return res.status(404).json({ message: 'User was not found' });
+    
+    if (!user) {
+      console.log('Användare ej funnen:', username);  // Logga när användaren inte hittas
+      return res.status(404).json({ message: 'User was not found' });
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
+    
     if (!isMatch) {
+      console.log('Lösenord matchar inte');  // Logga när lösenordet inte matchar
       return res.status(400).json({ message: 'Password or username is incorrect' });
     }
 
@@ -41,10 +48,11 @@ export const loginUser = async (req: Request, res: Response) => {
       { expiresIn: '1h' }
     );
 
-    // Skicka tillbaka både token och användardata
-    res.status(200).json({ token, user: { ...user.toObject(), password: undefined } });
+    const { password: _password, ...userWithoutPassword } = user.toObject();
+    res.status(200).json({ token, user: userWithoutPassword });
 
   } catch (error) {
+    console.error('Fel vid inloggning:', error);  // Logga eventuella fel vid inloggning
     return res.status(500).json({ message: 'Error logging in user', error });
   }
 };

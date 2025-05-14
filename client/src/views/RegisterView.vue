@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 
-const email = ref('')
+const username = ref('')
 const password = ref('')
 const router = useRouter()
 
@@ -11,7 +11,7 @@ const register = async () => {
   try {
     // Skicka registreringsdata till servern
     await axios.post('http://localhost:3000/auth/register', {
-      username: email.value,
+      username: username.value,
       password: password.value,
       is_admin: false
     })
@@ -20,9 +20,9 @@ const register = async () => {
     router.push('/login')
   } catch (error) {
     if (error.response?.status === 400) {
-      alert('Ogiltig inmatning. Kontrollera din e-post och lösenord.')
+      alert('Ogiltig inmatning. Kontrollera ditt användarnamn och lösenord.')
     } else if (error.response?.status === 409) {
-      alert('E-postadressen är redan registrerad.')
+      alert('Användarnamnet är redan registrerad.')
     } else {
       alert('Registrering misslyckades. Försök igen senare.')
     }
@@ -35,7 +35,7 @@ const register = async () => {
   <div class="register-container">
     <h2>Skapa konto</h2>
     <form @submit.prevent="register">
-      <input v-model="email" type="email" placeholder="E-post" required />
+      <input v-model="username" type="text" placeholder="Användarnamn" required />
       <input v-model="password" type="password" placeholder="Lösenord" required />
       <button type="submit">Skapa konto</button>
     </form>
