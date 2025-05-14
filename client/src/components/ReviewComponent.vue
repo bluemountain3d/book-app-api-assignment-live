@@ -43,7 +43,7 @@ const renderStars = (rating) => {
       <!-- Visa "visa fler reviews knapp" bara om det finns fler än 2 reviews -->
       <div v-if="reviews.length > 2" class="toggle-btn">
         <ButtonComponent
-          :label="showAll ? 'Dölj reviews' : 'Visa fler reviews'"
+          :label="showAll ? 'Dölj recensioner' : 'Visa fler recensioner'"
           @click="toggleReviews"
           class="primary-btn"
         />
@@ -63,7 +63,7 @@ const renderStars = (rating) => {
 
   h2 {
     color: var(--color-primary);
-    font-size: var(--font-size-700);
+    font-size: var(--font-size-600);
   }
 
   &__list {

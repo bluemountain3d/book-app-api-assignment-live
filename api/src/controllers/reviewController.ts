@@ -32,10 +32,10 @@ export const getReviewById = async (req: Request, res: Response) => {
 
 // POST new reviews
 export const addNewReview = async (req: Request, res: Response) => {
-    const { name, title, content, rating, book_id } = req.body;
+    const { name, title, content, rating, bookId } = req.body;
 
-    if (!name || !title || !content || !rating || !book_id) {
-        res.status(400).json({error: 'Name, title, content, rating and book_id is required'}) 
+    if (!name || !title || !content || !rating || !bookId) {
+        res.status(400).json({error: 'Name, title, content, rating and bookId is required'}) 
         return; 
     }
     
@@ -44,11 +44,12 @@ export const addNewReview = async (req: Request, res: Response) => {
             name: name,
             title: title,
             content: content, 
-            rating: rating
+            rating: rating, 
+            bookId
         });
         const savedReview = await newReview.save();
 
-        await book.findByIdAndUpdate(book_id, {
+        await book.findByIdAndUpdate(bookId, {
             $push: {reviews: savedReview.id}
         })
 
