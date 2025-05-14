@@ -10,22 +10,30 @@ const props = defineProps({
     required: true
   },
   type: {
-      type: String,
-      default: 'button',
+    type: String,
+    default: 'button',
   },
   to: {
-      type: String,
-      default: '',
+    type: String,
+    default: '',
   },
   typeOfBtn: {
     type: String,
     default: "CTA-btn"
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   }
 });
 
 const emit = defineEmits(['click', 'change'])
 
 const handleClick = (event) => {
+  if (props.disabled) {
+    return; // Do nothing if buttin is inactive
+  }
+
   if (props.to) {
     router.push(props.to)
   }
@@ -36,16 +44,22 @@ const handleClick = (event) => {
 </script>
 
 <template>
-  <RouterLink v-if="to" :to="to" :class="['CTA-button', typeOfBtn]">
-      <span>{{ label }}</span>
+  <RouterLink
+    v-if="to"
+    :to="to"
+    :class="['CTA-button', typeOfBtn, { 'disabled': disabled }]"
+    :tabindex="disabled ? -1 : 0"
+  >
+    <span>{{ label }}</span>
   </RouterLink>
 
   <button
-      v-else
-      :type="type"
-      @click="handleClick"
-      :class="['CTA-button', typeOfBtn]">
-
+    v-else
+    :type="type"
+    @click="handleClick"
+    :class="['CTA-button', typeOfBtn, { 'disabled': disabled }]"
+    :disabled="disabled"
+  >
     <span>{{ label }}</span>
   </button>
 </template>
@@ -76,23 +90,28 @@ button {
 
   transition: color .2s ease, background-color .2s ease;
 
-  &:hover {
+  &:hover:not(.disabled) {
     background-color: var(--color-accent-tint);
   }
-  &:active {
+  &:active:not(.disabled) {
     background-color: var(--color-accent-shade);
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
 .primary-btn {
   background-color: var(--color-primary);
 
-  &:hover {
+  &:hover:not(.disabled) {
     background-color: var(--color-primary-tint);
   }
-  &:active {
+  &:active:not(.disabled) {
     background-color: var(--color-primary-shade);
   }
 }
 </style>
-
