@@ -1,13 +1,17 @@
 <script setup>
-
+  import BookShelf from '@/components/BookShelf.vue';
 </script>
 
 <template>
-  
+
 
   <main>
-    <h1>Home View</h1>
+    <BookShelf />
   </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+
+
+
+</style>
