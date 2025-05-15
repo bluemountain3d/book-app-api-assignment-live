@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue';
+
 import ButtonComponent from '@/components/ButtonComponent.vue';
 
 defineProps({
@@ -7,6 +9,21 @@ defineProps({
     required: true
   }
 });
+
+const showPopup = ref(false);
+let timeoutId = null;
+
+function handleClick() {
+  showPopup.value = true;
+
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+  timeoutId = setTimeout(() => {
+    showPopup.value = false;
+    timeoutId = null;
+  }, 1500);
+}
 </script>
 
 <template>
@@ -42,10 +59,14 @@ defineProps({
           <ButtonComponent
               label="Lägg i varukorg"
               class="book__button"
+              @click="handleClick"
             />
         </section>
       </section>
     </div>
+      <div v-if="showPopup" class="popup">
+        Boken har lagts i varukorgen!
+      </div>
   </section>
 </template>
 
@@ -150,6 +171,16 @@ defineProps({
     .book__button {
       margin-top: 0.8rem;
     }
+  }
+  .popup {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    background-color: #333;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    z-index: 9999;
   }
 }
 </style>
