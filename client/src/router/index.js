@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import LoginView from '../views/LoginView.vue'
-import { useAuthStore } from '@/stores/auth'  
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,16 +38,22 @@ const router = createRouter({
       name: 'book',
       component: () => import('../views/SingleBookView.vue'),
     },
+    {
+      path: '/books/:id',
+      name: 'book',
+      component: () => import('../views/SingleBookLoggedIn.vue'),
+      meta: { requiresAuth: true  },
+    },
   ],
 })
 
-// Kontrollera användarstatus och admin-behörigheter 
+// Kontrollera användarstatus och admin-behörigheter
 router.beforeEach(async (to, from, next) => {
-  const authStore = useAuthStore()  
+  const authStore = useAuthStore()
   if (to.meta.requiresAdmin) {
     // Kontrollera om användaren är inloggad och har admin-behörighet
     if (!authStore.isLoggedIn || !authStore.isAdmin) {
-      return next({ name: 'login' }) 
+      return next({ name: 'login' })
     }
 
   }

@@ -4,7 +4,8 @@ import { useRoute } from "vue-router";
 
 import BookDetails from '@/components/BookDetails.vue';
 import ReviewComponent from '@/components/ReviewComponent.vue';
-import LoggedOutNewRewiew from '@/components/LoggedOutNewRewiew.vue';
+import NewRewiew from '@/components/LoggedOutNewRewiew.vue';
+import LoggedInNewReview from '@/components/LoggedInNewReview.vue';
 
 const API_URL = import.meta.env.VITE_API_URL;
 const book = ref({});
@@ -30,7 +31,7 @@ onMounted(async () => {
 <template>
   <BookDetails :book="book" />
   <ReviewComponent :reviews="book.reviews || []" />
-  <LoggedOutNewRewiew />
+  <LoggedInNewReview />
 
 </template>
 
