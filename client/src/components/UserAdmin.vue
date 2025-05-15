@@ -31,28 +31,43 @@ onMounted(() => {
 </script>
 
 <template>
-  <h2>Alla användare</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Användarnamn</th>
-        <th>Admin</th>
-        <th>Skapad</th>
-        <th>Lösenord (hash)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="user in users" :key="user._id">
-        <td>{{ user.username }}</td>
-        <td>{{ user.is_admin ? 'Ja' : 'Nej' }}</td>
-        <td>{{ new Date(user.createdAt).toLocaleString() }}</td>
-        <td>{{ user.password }}</td>
-      </tr>
-    </tbody>
-  </table>
+<details class="details" open>
+    <summary class="details__summary">Användarlista</summary>
+    <div class="details__content">
+      <div class="table-wrapper">
+        <table class="table">
+          <thead class="table__header">
+            <tr class="table__row">
+              <th class="table__heading">Användarnamn</th>
+              <th class="table__heading">Admin</th>
+              <th class="table__heading">Skapad</th>
+              <th class="table__heading">Lösenord (hash)</th>
+            </tr>
+          </thead>
+          <tbody class="table__body">
+            <tr
+              class="table__row"
+              v-for="user in users"
+              :key="user._id"
+              :class="{ 'admin-row': user.is_admin }"
+            >
+              <td class="table__cell">{{ user.username }}</td>
+              <td class="table__cell">{{ user.is_admin ? 'Ja' : 'Nej' }}</td>
+              <td class="table__cell">{{ new Date(user.createdAt).toLocaleString() }}</td>
+              <td class="table__cell">{{ user.password }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
 </template>
 
 <style scoped>
+.admin-row {
+  background-color: #e6ffed;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
