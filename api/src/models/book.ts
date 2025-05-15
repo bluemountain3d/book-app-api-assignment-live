@@ -37,8 +37,8 @@ const BookSchema = new Schema<IBook>({
   category: {
     type: String,
     required: false,
-    enum: ["sale", "popular", "customer favourites"],
-    default: false,
+    enum: ["sale", "popular", "customer favourites", "neutral"],
+    default: "neutral",
   },
 
   reviews: [
