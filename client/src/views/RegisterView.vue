@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 
+const API_URL = import.meta.env.VITE_API_URL;
 const username = ref('')
 const password = ref('')
 const router = useRouter()
@@ -10,7 +11,7 @@ const router = useRouter()
 const register = async () => {
   try {
     // Skicka registreringsdata till servern
-    await axios.post('http://localhost:3000/auth/register', {
+    await axios.post(`${API_URL}auth/register`, {
       username: username.value,
       password: password.value,
       is_admin: false
