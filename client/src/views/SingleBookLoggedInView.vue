@@ -4,7 +4,6 @@ import { useRoute } from "vue-router";
 
 import BookDetails from '@/components/BookDetails.vue';
 import ReviewComponent from '@/components/ReviewComponent.vue';
-import NewRewiew from '@/components/LoggedOutNewRewiew.vue';
 import LoggedInNewReview from '@/components/LoggedInNewReview.vue';
 
 const API_URL = import.meta.env.VITE_API_URL;
