@@ -14,7 +14,13 @@ const login = async () => {
     const res = await axios.post('http://localhost:3000/auth/login', {
       username: username.value,
       password: password.value
-    });
+    },
+    {
+      withCredentials: true
+    }
+  );
+
+
 
     console.log("Login response:", res.data);  // Logga hela svaret här
 
