@@ -36,13 +36,7 @@ const router = createRouter({
     {
       path: '/books/:id',
       name: 'book',
-      component: () => import('../views/SingleBookView.vue'),
-    },
-    {
-      path: '/books/:id',
-      name: 'book',
-      component: () => import('../views/SingleBookLoggedIn.vue'),
-      meta: { requiresAuth: true  },
+      component: () => import('../views/AuthForBookPageView.vue'),
     },
   ],
 })
@@ -57,7 +51,6 @@ router.beforeEach(async (to, from, next) => {
     }
 
   }
-
   next()
 })
 export default router
