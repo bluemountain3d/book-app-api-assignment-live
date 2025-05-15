@@ -8,5 +8,6 @@ export interface IBook {
   genres: string[];
   image: string;
   published_year: number;
+  category?: string;
   reviews: mongoose.Types.ObjectId[] | IReview[];
 }

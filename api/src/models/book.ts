@@ -34,6 +34,13 @@ const BookSchema = new Schema<IBook>({
     required: true,
   },
 
+  category: {
+    type: String,
+    required: false,
+    enum: ["sale", "popular", "customer favourites"],
+    default: false,
+  },
+
   reviews: [
     {type: mongoose.Schema.Types.ObjectId, ref: 'Reviews'}
   ]
