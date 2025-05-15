@@ -35,11 +35,11 @@ npm install
 Create a `.env` file in the API folder with the following variables:
 
 ```
-DB_USER =           # e.g. awesomeUserName
-DB_PASSWORD =       # e.g. superDuperPassword
-DB_CLUSTER =        # e.g. cluster0.abcdefg.mongodb.net
-DB_DATABASE =       # e.g. myAwesomeDB
-JWT_SECRET =        # e.g. awesomeSecretKey
+DB_USER = admin
+DB_PASSWORD = admin1234
+DB_CLUSTER = cluster0.abcdefg.mongodb.net
+DB_DATABASE = dbName
+JWT_SECRET = secret
 ```
 
 Replace values with your own database configuration.
