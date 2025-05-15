@@ -3,7 +3,17 @@
   import IconSvg from '@/components/IconSvg.vue';
   import ButtonComponent from './ButtonComponent.vue';
 
+  import { useAuthStore } from '@/stores/auth'; //
+  import { useRouter } from 'vue-router'; //
 
+  const authStore = useAuthStore();
+  const router = useRouter();
+
+  // Logout function
+  const handleLogout = () => {
+    authStore.logout();
+    router.push('/'); // Redirect to home page after logout
+  };
 </script>
 
 <template>
@@ -43,10 +53,10 @@
           </li>
 
           <!-- Only when loggen in -->
-          <template v-if="isLoggedIn">
+          <template v-if="authStore.isLoggedIn"> <!-- added authStore. -->
 
             <!-- Links visible only for admin users -->
-            <template v-if="isAdmin">
+            <template v-if="authStore.isAdmin"> <!-- added authStore. -->
               <li class="nav__item">
                 <RouterLink to="/admin" class="nav__link">Admin</RouterLink>
               </li>
@@ -54,7 +64,7 @@
 
             <li class="nav__item">
               <!-- Button to logout -->
-              <a href="#">Logga ut</a>
+              <a href="#" class="nav__link" @click.prevent="handleLogout">Logga ut</a> <!-- added logout function -->
             </li>
 
           </template>
