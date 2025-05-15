@@ -1,6 +1,6 @@
 <script setup>
 
-import ButtonComponent from './ButtonComponent.vue';
+import ButtonComponent from '../ButtonComponent.vue';
 
 </script>
 
@@ -10,13 +10,17 @@ import ButtonComponent from './ButtonComponent.vue';
   <section class="crerate-review">
 
     <form class="crerate-review__form-container container-boxed">
-      <input placeholder="Rubrik på din recension" required />
-      <input placeholder="Din recension" required />
-      <input placeholder="Rating (1-5)" required />
-      <input placeholder="Ditt användarnamn" required />
+      <span class="material-icons lock">lock</span>
 
-      <ButtonComponent label="Skicka" :to="`submit`" class="button send" />
-      <ButtonComponent label="Rensa fält" :to="`submit`" class="primary-btn clear" />
+      <div class="blurred-effect">
+        <input placeholder="Rubrik på din recension" disabled />
+        <input placeholder="Din recension" disabled />
+        <input placeholder="Rating (1-5)" disabled />
+        <input placeholder="Ditt användarnamn" disabled />
+
+        <ButtonComponent label="Skicka" class="disabled" />
+        <ButtonComponent label="Rensa fält" class="primary-btn disabled" />
+      </div>
     </form>
 
     <section class="crerate-review__login-container container-boxed">
@@ -48,10 +52,11 @@ h2 {
 
 .crerate-review {
   padding-inline: 4rem;
+  padding-bottom: 3rem;
 
-    display: grid;
-    grid-template-columns: 60% 40%;
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 1rem;
 
     &__login-container {
     background-color: var(--color-background-accent);
@@ -69,19 +74,32 @@ h2 {
     }
   }
 
-    &__form-container {
-      filter: blur(1rem);
-      background-color: var(--color-background-accent);
-      border: 2px solid var(--color-details);
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      margin-top: 1rem;
-      padding-inline: 5rem;
-      padding-block: 4rem;
+  &__form-container {
+    background-color: var(--color-background-accent);
+    box-shadow: 0px 0px 10px 10px var(--color-background-accent);
+    box-sizing: border-box;
+    margin-top: 2rem;
+    padding-inline: 5rem;
+    padding-block: 4rem;
+    position: relative;
+
+  .lock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    color: var(--color-primary);
+    z-index: 10;
+    pointer-events: none;
     }
 
-    &__login-btns {
+    .blurred-effect {
+    filter: blur(0.7rem);
+    }
+  }
+
+  &__login-btns {
     display: flex;
     justify-content: center;
     flex-direction: column;
