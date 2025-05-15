@@ -2,9 +2,9 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from "vue-router";
 
-import BookDetails from '@/components/BookDetails.vue';
-import ReviewComponent from '@/components/ReviewComponent.vue';
-import LoggedInNewReview from '@/components/LoggedInNewReview.vue';
+import BookDetails from '@/components/Single-book-page/BookDetails.vue';
+import ReviewComponent from '@/components/Single-book-page/ReviewList.vue';
+import LoggedInNewReview from '@/components/Single-book-page/ShowsReviewForm.vue';
 
 const API_URL = import.meta.env.VITE_API_URL;
 const book = ref({});

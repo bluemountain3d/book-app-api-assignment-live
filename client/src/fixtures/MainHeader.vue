@@ -1,7 +1,7 @@
 <script setup>
   import { RouterLink } from 'vue-router';
   import IconSvg from '@/components/IconSvg.vue';
-  import ButtonComponent from './ButtonComponent.vue';
+  import ButtonComponent from '@/components/ButtonComponent.vue';
 
   import { useAuthStore } from '@/stores/auth'; //
   import { useRouter } from 'vue-router'; //

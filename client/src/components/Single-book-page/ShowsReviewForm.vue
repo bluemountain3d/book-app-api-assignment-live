@@ -2,7 +2,7 @@
 import { reactive, ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
-import ButtonComponent from './ButtonComponent.vue';
+import ButtonComponent from '../ButtonComponent.vue';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
