@@ -1,8 +1,4 @@
-<script setup>
-</script>
-
 <template>
-  <main>
     <section class="hero-image">
       <img
         src="@/assets/home-banner-image.png"
@@ -15,7 +11,6 @@
         <p class="paragraph">Där orden får mening</p>
       </div>
     </section>
-  </main>
 </template>
 
 <style scoped lang="scss">
