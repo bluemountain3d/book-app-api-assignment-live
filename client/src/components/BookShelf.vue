@@ -75,6 +75,7 @@
   .book-shelf {
     display: block;
 
+
     &__title {
       font-size: var(--font-size-700);
       font-weight: 700;
@@ -92,13 +93,20 @@
       overflow: clip;
       justify-content: center;
       gap: 1.8125rem;
+      overflow: visible;
     }
   }
 
   .book {
+    cursor: pointer;
     position: relative;
     z-index: 1;
     padding: 0 .75rem .75rem .75rem;
+    transition: transform .5s ease;
+
+    &:hover {
+      transform: translateY(.5rem);
+    }
 
 
     &::before {
@@ -111,6 +119,7 @@
     }
 
     &__cover {
+      margin: 0 auto;
       width: 9rem;
       height: 13.5rem;
       display: flex;
@@ -128,10 +137,9 @@
       object-position: top;
 
       box-shadow:
-        0 .125rem 0.25rem rgba(black, .08),
-        0 .25rem .75rem rgba(black, .08)
+        0 .125rem 0.25rem rgba(black, .12),
+        0 .25rem .75rem rgba(black, .12)
       ;
-
     }
 
     &__content {
