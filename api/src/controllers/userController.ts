@@ -48,6 +48,13 @@ export const loginUser = async (req: Request, res: Response) => {
       { expiresIn: '1h' }
     );
 
+    res.cookie('accessToken', token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'strict',
+      maxAge: 1000 * 60 * 60 * 24 * 7 // Expires in 7 days
+    })
+
     const { password: _password, ...userWithoutPassword } = user.toObject();
     res.status(200).json({ token, user: userWithoutPassword });
 

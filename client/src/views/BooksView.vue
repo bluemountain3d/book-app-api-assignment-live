@@ -9,7 +9,8 @@
     try {
       const response = await fetch(`${API_URL}books`);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
+      // console.log('Books loaded')
       books.value = data;
     } catch (error) {
       console.log(error);

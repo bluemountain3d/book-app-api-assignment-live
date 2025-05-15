@@ -1,14 +1,11 @@
 <script setup>
   import { reactive, ref } from 'vue';
-  import { useAuthStore } from '@/stores/auth.js';
   import CTAButton from '@/components/ButtonComponent.vue';
 
-  const authStore = useAuthStore();
   const API_URL = import.meta.env.VITE_API_URL;
-  console.log('API URL:', API_URL);
 
   // Form data
-  const bookData = reactive({
+  const form = reactive({
     title: '',
     author: '',
     description: '',
@@ -25,71 +22,66 @@
   // Temporary variable for genre input as string
   const genresInput = ref('');
 
+  const validateForm = () => {
+    if (!form.title || !form.author || !form.description ||
+        form.genres.length === 0 || !form.published_year || !form.image) {
+      error.value = 'Alla fält måste fyllas i';
+      return false;
+    }
+    return true;
+  };
+
+  const resetForm = () => {
+    form.title = '';
+    form.author = '';
+    form.description = '';
+    form.published_year = null;
+    form.image = '';
+    form.genres = [];
+    genresInput.value = '';
+  };
+
   const addBook = async (event) => {
     event.preventDefault();
+
+    // Convert genresInput to array before validation
+    if (genresInput.value) {
+      form.genres = genresInput.value.split(',')
+        .map(item => item.trim())
+        .filter(item => item !== '');
+    }
+
+    if (!validateForm()) {
+      return;
+    }
+
     isLoading.value = true;
     error.value = '';
     message.value = '';
 
-    // Convert comma-separated string to array of genres
-    // Note: No .value needed when updating bookData
-    bookData.genres = genresInput.value
-      .split(',')
-      .map(genre => genre.trim())
-      .filter(genre => genre !== '');
-
-    // Transform form data - no .value needed here
-    const formData = {
-      title: bookData.title,
-      author: bookData.author,
-      description: bookData.description,
-      published_year: parseInt(bookData.published_year),
-      image: bookData.image,
-      genres: bookData.genres
-    };
-
     try {
       const response = await fetch(`${API_URL}books`, {
-        method: 'POST',
+        method: "POST",
+        credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${authStore.token}`
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(form),
       });
 
-      // Handle the response
-      const rawText = await response.text();
-
-      if (!rawText) {
-        throw new Error('Server returned an empty response');
-      }
-
-      let data;
-      try {
-        data = JSON.parse(rawText);
-      } catch (jsonError) {
-        console.error('Failed to parse JSON:', jsonError);
-        throw new Error(`Server returned invalid response: ${rawText.substring(0, 100)}...`);
-      }
+      console.log('Response:', response);
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to add the book');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Något gick fel vid skapande av boken');
       }
 
-      // Reset form - notice how much cleaner it is without .value
-      bookData.title = '';
-      bookData.author = '';
-      bookData.description = '';
-      bookData.published_year = null;
-      bookData.image = '';
-      bookData.genres = [];
-      genresInput.value = '';
-
-      message.value = 'Book saved successfully!';
+      const data = await response.json();
+      message.value = data.message || 'Boken har lagts till framgångsrikt';
+      resetForm();
     } catch (err) {
-      console.error('Error during fetch:', err);
-      error.value = err.message;
+      error.value = err.message || 'Ett fel uppstod vid tillägg av boken';
+      console.error(err);
     } finally {
       isLoading.value = false;
     }
@@ -117,7 +109,7 @@
               id="title"
               name="title"
               placeholder="Titel"
-              v-model="bookData.title"
+              v-model="form.title"
               required
             >
           </div>
@@ -130,7 +122,7 @@
               id="author"
               name="author"
               placeholder="Författare"
-              v-model="bookData.author"
+              v-model="form.author"
               required
             >
           </div>
@@ -144,7 +136,7 @@
             id="description"
             name="description"
             placeholder="Beskrivning"
-            v-model="bookData.description"
+            v-model="form.description"
             required
           ></textarea>
         </div>
@@ -161,6 +153,7 @@
             v-model="genresInput"
             required
           >
+          <!-- <small class="form__help-text">Separera genrer med kommatecken</small> -->
         </div>
 
         <!-- Group: Published Year, Image Name and Genres -->
@@ -175,10 +168,9 @@
               id="published-year"
               name="publishedYear"
               placeholder="Utgivningsår"
-              minlength="0"
-              maxlength="4"
+              min="0"
               max="9999"
-              v-model="bookData.published_year"
+              v-model="form.published_year"
               required
             >
           </div>
@@ -191,7 +183,7 @@
               id="image-name"
               name="imageName"
               placeholder="Bildnamn"
-              v-model="bookData.image"
+              v-model="form.image"
               required
             >
           </div>
