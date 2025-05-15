@@ -1,5 +1,6 @@
 <script setup>
-import IconSvg from './IconSvg.vue';
+import IconSvg from '@/components/IconSvg.vue';
+
 </script>
 
 <template>

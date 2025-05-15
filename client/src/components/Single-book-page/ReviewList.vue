@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
-import ButtonComponent from './ButtonComponent.vue';
+import ButtonComponent from '../ButtonComponent.vue';
 
 const props = defineProps({
   reviews: {
