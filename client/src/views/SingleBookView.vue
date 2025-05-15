@@ -2,9 +2,9 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from "vue-router";
 
-import BookDetails from '@/components/BookDetails.vue';
-import ReviewComponent from '@/components/ReviewComponent.vue';
-import LoggedOutNewRewiew from '@/components/LoggedOutNewRewiew.vue';
+import BookDetails from '@/components/Single-book-page/BookDetails.vue';
+import ReviewList from '@/components/Single-book-page/ReviewList.vue';
+import HideRewiewForm from '@/components/Single-book-page/HideRewiewForm.vue';
 
 const API_URL = import.meta.env.VITE_API_URL;
 const book = ref({});
@@ -29,8 +29,8 @@ onMounted(async () => {
 
 <template>
   <BookDetails :book="book" />
-  <ReviewComponent :reviews="book.reviews || []" />
-  <LoggedOutNewRewiew />
+  <ReviewList :reviews="book.reviews || []" />
+  <HideRewiewForm />
 
 </template>
 
