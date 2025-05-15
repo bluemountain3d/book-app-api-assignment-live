@@ -4,13 +4,14 @@ import axios from 'axios'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 
+const API_URL = import.meta.env.VITE_API_URL;
 const authStore = useAuthStore()
 const router = useRouter()
 const users = ref([])
 
 const fetchUsers = async () => {
   try {
-    const res = await axios.get('http://localhost:3000/users', {
+    const res = await axios.get(`${API_URL}users`, {
       headers: {
         Authorization: `Bearer ${authStore.token}`,
       },

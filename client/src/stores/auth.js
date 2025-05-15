@@ -1,45 +1,7 @@
 import { defineStore } from 'pinia'
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const useAuthStore = defineStore('auth', {
-  // state: () => {
-  //   let user = null;
-  //   try {
-  //     const userData = localStorage.getItem('user');
-  //     if (userData) {
-  //       user = JSON.parse(userData);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error parsing user data from localStorage:', error);
-  //     // Restore localStorage if data is corrupted
-  //     localStorage.removeItem('user');
-  //   }
-
-  //   return {
-  //     user: user,
-  //     token: localStorage.getItem('token') || null,
-  //   }
-  // },
-
-  // getters: {
-  //   isLoggedIn: (state) => !!state.token,
-  //   isAdmin: (state) => state.user?.is_admin === true,
-  // },
-
-  // actions: {
-  //   login(userData, token) {
-  //     this.user = userData
-  //     this.token = token
-  //     localStorage.setItem('user', JSON.stringify(userData))
-  //     localStorage.setItem('token', token)
-  //   },
-  //   logout() {
-  //     this.user = null
-  //     this.token = null
-  //     localStorage.removeItem('user')
-  //     localStorage.removeItem('token')
-  //   },
-  // },
-
   state: () => {
     let user = null;
     try {
@@ -89,10 +51,10 @@ export const useAuthStore = defineStore('auth', {
       localStorage.removeItem('isAuthenticated');
 
       // Call logout endpoint to clear the cookie
-      const API_URL = import.meta.env.VITE_API_URL || '';
+      // const API_URL = import.meta.env.VITE_API_URL || '';
 
       // Make a request to clear the cookie on logout
-      fetch(`${API_URL}/auth/logout`, {
+      fetch(`${API_URL}auth/logout`, {
         method: 'POST',
         credentials: 'include'
       }).catch(err => {
@@ -103,8 +65,8 @@ export const useAuthStore = defineStore('auth', {
     // Method to check if the user is still authenticated with the server
     async checkAuthStatus() {
       try {
-        const API_URL = import.meta.env.VITE_API_URL || '';
-        const response = await fetch(`${API_URL}/auth/status`, {
+        // const API_URL = import.meta.env.VITE_API_URL || '';
+        const response = await fetch(`${API_URL}auth/status`, {
           credentials: 'include'  // Important for sending cookies
         });
 
