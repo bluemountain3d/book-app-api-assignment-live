@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
-import User from '../models/user.ts';
-import { RegisterUserBody } from '../types/user.ts';
+import User from '../models/user';
+import { RegisterUserBody } from '../types/user';
 import jwt from 'jsonwebtoken';
 
 // Registrera användare

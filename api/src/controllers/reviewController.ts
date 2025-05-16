@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import reviews from "../models/reviews.ts";
-import book from "../models/book.ts";
+import reviews from "../models/reviews";
+import book from "../models/book";
 
 // GET all reviews
 export const getAllreviews = async(req: Request, res: Response) => {

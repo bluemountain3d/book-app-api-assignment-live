@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IReview } from "../types/IReview.ts";
+import { IReview } from "../types/IReview";
 const Schema = mongoose.Schema;
 
 const ReviewsSchema = new Schema<IReview>({

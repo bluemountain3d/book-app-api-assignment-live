@@ -5,9 +5,9 @@ import {
   addNewBook,
   updateBookById,
   removeBookById
-} from '../controllers/book/bookController.ts';
+} from '../controllers/book/bookController';
 const router = express.Router();
-import { authenticate } from '../middleware/auth.ts';
+import { authenticate } from '../middleware/auth';
 
 // Routes
 router.get('/', fetchAllBooks);

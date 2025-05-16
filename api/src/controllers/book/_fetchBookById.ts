@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import Book from "../../models/book.ts";
+import Book from "../../models/book";
 
 export const fetchBookById = async (req: Request, res: Response) => {
   console.log('Call: fetchBookById()');
