@@ -10,16 +10,17 @@ export const registerUser = async (req: Request<{}, {}, RegisterUserBody>, res: 
     const { username, password, is_admin } = req.body;
     const existingUser = await User.findOne({ username });
     if (existingUser) {
-      return res.status(400).json({ message: 'Username already exists' });
+      res.status(400).json({ message: 'Username already exists' });
+      return;
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ username, password: hashedPassword, is_admin });
     await newUser.save();
 
-    return res.status(201).json({ message: 'User created successfully', user: newUser });
+    res.status(201).json({ message: 'User created successfully', user: newUser });
   } catch (error) {
-    return res.status(500).json({ message: 'Error registering user', error: (error as Error).message });
+    res.status(500).json({ message: 'Error registering user', error: (error as Error).message });
   }
 };
 
@@ -32,14 +33,16 @@ export const loginUser = async (req: Request, res: Response) => {
     
     if (!user) {
       console.log('Användare ej funnen:', username);  // Logga när användaren inte hittas
-      return res.status(404).json({ message: 'User was not found' });
+      res.status(404).json({ message: 'User was not found' });
+      return;
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     
     if (!isMatch) {
       console.log('Lösenord matchar inte');  // Logga när lösenordet inte matchar
-      return res.status(400).json({ message: 'Password or username is incorrect' });
+      res.status(400).json({ message: 'Password or username is incorrect' });
+      return;
     }
 
     const token = jwt.sign(
@@ -60,7 +63,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
   } catch (error) {
     console.error('Fel vid inloggning:', error);  // Logga eventuella fel vid inloggning
-    return res.status(500).json({ message: 'Error logging in user', error });
+    res.status(500).json({ message: 'Error logging in user', error });
   }
 };
 
@@ -74,9 +77,9 @@ export const logoutUser = async (req: Request, res: Response) => {
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await User.find();
-    return res.status(200).json(users);
+    res.status(200).json(users);
   } catch (error) {
-    return res.status(500).json({ message: 'Error fetching users', error });
+    res.status(500).json({ message: 'Error fetching users', error });
   }
 };
 
@@ -84,10 +87,13 @@ export const getAllUsers = async (req: Request, res: Response) => {
 export const getUserById = async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.params.id);
-    if (!user) return res.status(404).json({ message: 'User not found' });
-    return res.status(200).json(user);
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+    res.status(200).json(user);
   } catch (error) {
-    return res.status(500).json({ message: 'Error fetching user', error });
+    res.status(500).json({ message: 'Error fetching user', error });
   }
 };
 
@@ -95,10 +101,13 @@ export const getUserById = async (req: Request, res: Response) => {
 export const updateUser = async (req: Request, res: Response) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!updatedUser) return res.status(404).json({ message: 'User not found' });
-    return res.status(200).json({ message: 'User updated', user: updatedUser });
+    if (!updatedUser) {
+    res.status(404).json({ message: 'User not found' });
+    return;
+    }
+    res.status(200).json({ message: 'User updated', user: updatedUser });
   } catch (error) {
-    return res.status(500).json({ message: 'Error updating user', error });
+    res.status(500).json({ message: 'Error updating user', error });
   }
 };
 
@@ -106,9 +115,12 @@ export const updateUser = async (req: Request, res: Response) => {
 export const deleteUser = async (req: Request, res: Response) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
-    if (!deletedUser) return res.status(404).json({ message: 'User not found' });
-    return res.status(200).json({ message: 'User deleted' });
+    if (!deletedUser) {
+    res.status(404).json({ message: 'User not found' });
+    return;
+    }
+    res.status(200).json({ message: 'User deleted' });
   } catch (error) {
-    return res.status(500).json({ message: 'Error deleting user', error });
+    res.status(500).json({ message: 'Error deleting user', error });
   }
 };

@@ -14,5 +14,5 @@ router.get('/', getAllUsers);
 router.get('/:id', getUserById);
 router.patch('/:id', authenticate, updateUser);  // skyddad
 router.delete('/:id', authenticate, deleteUser); // skyddad
-
+ 
 export default router;
