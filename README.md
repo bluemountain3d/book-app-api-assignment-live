@@ -205,6 +205,30 @@ db.users.updateOne({ username: 'your_username' }, { $set: { is_admin: true } });
 
 ## Group Members and Areas of Responsibility
 
+Our group consisted of 3 members, with the following distribution of responsibilities:
+
+### Primary Areas of Responsibility
+
+#### Area 1: User Management
+
+- **MongoDB Schema:** User table with username, password, is_admin, and created_at fields
+- **API Endpoints:** CRUD operations for users and authentication (login, logout, register)
+- **Client Interface:** Registration form, login form, and admin panel to list all users
+
+#### Area 2: Book Management
+
+- **MongoDB Schema:** Book table with title, description, author, genres (array), image, published_year, and reviews (reference)
+- **API Endpoints:** CRUD operations for books
+- **Client Interface:** Book listing page for visitors and admin panel to manage books
+
+#### Area 3: Review Management
+
+- **MongoDB Schema:** Review table with name, content, rating (1-5), and created_at
+- **API Endpoints:** CRUD operations for reviews
+- **Client Interface:** Specific book page showing details and allowing users to create reviews and list existing ones
+
+Each member had primary responsibility for their assigned area but collaborated on overlapping aspects. Member assignments:
+
 - [David Brunni](https://github.com/AgnesWilson): Area of responsibility 1
 - [Egil Eskilsson](https://github.com/bluemountain3d): Area of responsibility 2
 - [Agnes Wilson](https://github.com/DavidBrunni): Area of responsibility 3
