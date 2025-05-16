@@ -113,14 +113,12 @@ npm install
    Create a `.env` file in the API folder with the following variables:
 
 ```
-MONGODB_URL = mongodb+srv://grupp13:grupp13@cluster0.bhfoaob.mongodb.net/bookApp
-JWT_SECRET = nyckel123
+MONGODB_URL = mongodb+srv://[user]:[password]@[cluster.identifier].mongodb.net/[Database Name]
+JWT_SECRET = [your-jwt-secret-key]
 
 ```
 
 Replace values with your own database configuration.
-
-> NOTE! Important that DB_CLUSTER=...mongo.net doesn't end with a `/`.
 
 5. Start the API:
 

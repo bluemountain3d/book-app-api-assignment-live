@@ -15,8 +15,8 @@ const app = express();
 // Midlewares
 app.use(express.json());
 app.use(cors({
-  //origin: 'http://localhost:5173', 
-  origin: 'https://group-assignment-client.vercel.app',
+  origin: 'http://localhost:5173',
+  // origin: 'https://group-assignment-client.vercel.app',
   credentials: true   
 }));
 app.use(cookieParser());
