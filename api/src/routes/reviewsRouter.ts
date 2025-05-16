@@ -1,11 +1,11 @@
 import express from "express";
 
-import { authenticate } from "../middleware/auth.ts";
+import { authenticate } from "../middleware/auth";
 import {getAllreviews, 
         getReviewById, 
         addNewReview, 
         updateReview, 
-        deleteReview } from "../controllers/reviewController.ts";
+        deleteReview } from "../controllers/reviewController";
 
 const router = express.Router();
 

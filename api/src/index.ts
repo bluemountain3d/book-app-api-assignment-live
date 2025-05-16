@@ -2,12 +2,12 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import mongoose from 'mongoose';
 
-import booksRouter from './routes/booksRouter.ts';
-import reviewsRouter from './routes/reviewsRouter.ts';
-import userRoutes from './routes/userRouter.ts';
-import authRouter from './routes/authRouter.ts';
+import { connectToDatabase } from './config/db';
+import booksRouter from './routes/booksRouter';
+import reviewsRouter from './routes/reviewsRouter';
+import userRoutes from './routes/userRouter';
+import authRouter from './routes/authRouter';
 
 
 const app = express();
@@ -25,16 +25,6 @@ app.use('/users', userRoutes);
 app.use('/books', booksRouter);
 app.use('/reviews', reviewsRouter);
 app.use('/auth', authRouter);
-
-const connectToDatabase = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URL || "");
-    console.log('Connected to database');
-  } catch (error) {
-    console.log('Connection to database failed:', error);
-    process.exit(1);
-  }
-}
 
 // Connect to database
 connectToDatabase();
