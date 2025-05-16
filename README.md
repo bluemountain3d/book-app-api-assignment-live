@@ -141,7 +141,7 @@ npm install
    Create a `.env` file in the Client folder with the following variable:
 
 ```
-VITE_API_URL = https://group-assignment-api.vercel.app/
+VITE_API_URL = https://localhost:3000/
 ```
 
 > NOTE! The trailing `/` is important.
