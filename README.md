@@ -113,12 +113,9 @@ npm install
    Create a `.env` file in the API folder with the following variables:
 
 ```
-PORT=3000
-DB_USER=admin
-DB_PASSWORD=admin1234
-DB_CLUSTER=cluster.abcdefg.mongodb.net
-DB_DATABASE=dbName
-JWT_SECRET=your_jwt_secret_key
+MONGODB_URL = mongodb+srv://grupp13:grupp13@cluster0.bhfoaob.mongodb.net/bookApp
+JWT_SECRET = nyckel123
+
 ```
 
 Replace values with your own database configuration.
@@ -146,7 +143,7 @@ npm install
    Create a `.env` file in the Client folder with the following variable:
 
 ```
-VITE_API_URL=http://localhost:3000/
+VITE_API_URL = https://group-assignment-api.vercel.app/
 ```
 
 > NOTE! The trailing `/` is important.
