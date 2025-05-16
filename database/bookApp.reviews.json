@@ -1,0 +1,256 @@
+[{
+  "_id": {
+    "$oid": "6824be994a6dac5d2f7336e7"
+  },
+  "name": "agnes ",
+  "title": "Så bra barnbok",
+  "content": "Älskade att läsa den för min dotter!",
+  "rating": 5,
+  "bookId": {
+    "$oid": "681b715d34fde07b194c0fec"
+  },
+  "created_at": {
+    "$date": "2025-05-14T16:02:33.022Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6825abf430de3640bb9ec004"
+  },
+  "name": "agnes ",
+  "title": "Älskade denna bok!",
+  "content": "Så spännande handling! ",
+  "rating": 5,
+  "bookId": {
+    "$oid": "681b6d6434fde07b194c0fe2"
+  },
+  "created_at": {
+    "$date": "2025-05-15T08:55:16.267Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6825c3dc30de3640bb9ec04d"
+  },
+  "name": "Isfantasten123",
+  "title": "Spännande med is! ",
+  "content": "Tycker att det är kul att läsa böcker om is! ",
+  "rating": 4,
+  "bookId": {
+    "$oid": "681b6eff34fde07b194c0fe5"
+  },
+  "created_at": {
+    "$date": "2025-05-15T10:37:16.421Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826fc922313d3b241e4125c"
+  },
+  "name": "Anna Svensson",
+  "title": "Favoritbok!",
+  "content": "En av de bästa böcker jag har läst! Rekommenderas varmt.",
+  "rating": 5,
+  "bookId": {
+    "$oid": "681b6d6434fde07b194c0fe2"
+  },
+  "created_at": {
+    "$date": "2025-05-16T08:51:30.684Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826fcbd2313d3b241e41262"
+  },
+  "name": "Nadir",
+  "title": "Förutsägbar",
+  "content": "Språket var vackert, men handlingen var förutsägbar.",
+  "rating": 3,
+  "bookId": {
+    "$oid": "681b6d6434fde07b194c0fe2"
+  },
+  "created_at": {
+    "$date": "2025-05-16T08:52:13.878Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826fcea2313d3b241e4126b"
+  },
+  "name": "Jonas Ek",
+  "title": "Oväntad",
+  "content": "En spännande bok med oväntade vändningar.",
+  "rating": 4,
+  "bookId": {
+    "$oid": "681b6eff34fde07b194c0fe5"
+  },
+  "created_at": {
+    "$date": "2025-05-16T08:52:58.914Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826fd732313d3b241e41284"
+  },
+  "name": "Pelle",
+  "title": "Besviken",
+  "content": "Trodde den skulle handla mer om Titanic men det gjorde den inte :(",
+  "rating": 2,
+  "bookId": {
+    "$oid": "681b6f8b34fde07b194c0fe8"
+  },
+  "created_at": {
+    "$date": "2025-05-16T08:55:15.527Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826fdad2313d3b241e41289"
+  },
+  "name": "Johanna",
+  "title": "Inte lika bra som första boken",
+  "content": "Tyckcte att den första boken i serien var klart bättre. Men helt okej ändå... ",
+  "rating": 3,
+  "bookId": {
+    "$oid": "681b718d34fde07b194c0fee"
+  },
+  "created_at": {
+    "$date": "2025-05-16T08:56:13.848Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826fdd02313d3b241e4128f"
+  },
+  "name": "Johannes",
+  "title": "Älskar att det handlar om magi",
+  "content": "Älskar böcker om magi! Längtar tills jag bår börja läsa nästa bok i serien! ",
+  "rating": 5,
+  "bookId": {
+    "$oid": "681b718d34fde07b194c0fee"
+  },
+  "created_at": {
+    "$date": "2025-05-16T08:56:48.495Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826fe132313d3b241e41297"
+  },
+  "name": "Hacker123",
+  "title": "Jätteläskig",
+  "content": "Tycker boken var ganska obehaglig att läsa. Många obehagliga scener. Men kul att tjejen är hacker!",
+  "rating": 4,
+  "bookId": {
+    "$oid": "681b767934fde07b194c100a"
+  },
+  "created_at": {
+    "$date": "2025-05-16T08:57:55.447Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826fe692313d3b241e412a9"
+  },
+  "name": "Putte",
+  "title": "Snyggt omslag",
+  "content": "Köpte boken mest för att jag tyckte att omslaget var snyggt. Det var egentligen det enda som var bra med boken...",
+  "rating": 1,
+  "bookId": {
+    "$oid": "681b73e234fde07b194c0ff8"
+  },
+  "created_at": {
+    "$date": "2025-05-16T08:59:21.445Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826feb02313d3b241e412b1"
+  },
+  "name": "Jan",
+  "title": "Så bra bok! ",
+  "content": "Älskade varje sekund av denna läsupplevelse, fantastiskt språk och så otroligt bra handling!",
+  "rating": 5,
+  "bookId": {
+    "$oid": "681b743134fde07b194c0ffe"
+  },
+  "created_at": {
+    "$date": "2025-05-16T09:00:32.972Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826ff242313d3b241e412ba"
+  },
+  "name": "Amir",
+  "title": "Otrolig",
+  "content": "Fantastisk bok rakt igenom, vill läsa om den direkt!",
+  "rating": 5,
+  "bookId": {
+    "$oid": "681b743134fde07b194c0ffe"
+  },
+  "created_at": {
+    "$date": "2025-05-16T09:02:28.339Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826ff422313d3b241e412bf"
+  },
+  "name": "Sixten",
+  "title": "Helt okej",
+  "content": "Helt okej bok, tyckte den var lite lång.",
+  "rating": 3,
+  "bookId": {
+    "$oid": "681b743934fde07b194c1000"
+  },
+  "created_at": {
+    "$date": "2025-05-16T09:02:58.938Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826ff5c2313d3b241e412c4"
+  },
+  "name": "Mohammed",
+  "title": "Otrolig",
+  "content": "Otroligt bra bok! Älskade att läsa den!",
+  "rating": 5,
+  "bookId": {
+    "$oid": "681b73f834fde07b194c0ffc"
+  },
+  "created_at": {
+    "$date": "2025-05-16T09:03:24.370Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682700672313d3b241e41306"
+  },
+  "name": "Anonym123",
+  "title": "Så spännande",
+  "content": "Hade svårt att lämna boken ifrån mig! Ville inte att den skulle ta slut ",
+  "rating": 5,
+  "bookId": {
+    "$oid": "681b771a34fde07b194c1012"
+  },
+  "created_at": {
+    "$date": "2025-05-16T09:07:51.593Z"
+  },
+  "__v": 0
+}]

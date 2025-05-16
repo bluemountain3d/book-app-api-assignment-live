@@ -1,0 +1,392 @@
+[{
+  "_id": {
+    "$oid": "681b6d6434fde07b194c0fe2"
+  },
+  "title": "Den Makedoniska Höken",
+  "description": "Ett spännande äventyr där Dirk Pitt möter en förrymd krigsförbrytare och en vacker men opålitlig brunett, medan han konfronterar ett farligt uppdrag som involverar en dödlig last värd miljarder. Detta maritimt äventyr är den första boken i den populära Dirk Pitt-serien och visar Cusslers förmåga att kombinera action, avancerad teknologi och historiska mysterier.",
+  "author": "Clive Cussler",
+  "genres": [
+    "Äventyr",
+    "Thriller",
+    "Action",
+    "Maritim fiction"
+  ],
+  "image": "clive-cussler-den-makedoniska-hoken",
+  "published_year": 1973,
+  "reviews": [
+    {
+      "$oid": "681db24b35336db3e5e013d8"
+    },
+    {
+      "$oid": "681db2a135336db3e5e013de"
+    },
+    {
+      "$oid": "68239158a20e894025a51fb4"
+    },
+    {
+      "$oid": "6824b88ab058acb56afd5166"
+    },
+    {
+      "$oid": "6824b94e4a6dac5d2f7336ad"
+    },
+    {
+      "$oid": "6824c5624a6dac5d2f7336ff"
+    },
+    {
+      "$oid": "6824c5ab4a6dac5d2f733702"
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b6eff34fde07b194c0fe5"
+  },
+  "title": "Isberget",
+  "description": "Alldeles nyligen njöt Dirk Pitt av solen och värmen i Kalifornien, då ett brådskande samtal fick honom att överge Stilla havets ljumma bris. Ett fartyg som länge varit försvunnet har hittats fastfruset i en jättelik isklump, och Dirk måste undersöka vraket och dess mystiska last.",
+  "author": "Clive Cussler",
+  "genres": [
+    "Äventyr",
+    "Thriller",
+    "Action",
+    "Maritim fiction"
+  ],
+  "image": "clive-cussler-isberget",
+  "published_year": 1975,
+  "reviews": [
+    {
+      "$oid": "6824b9e54a6dac5d2f7336b5"
+    },
+    {
+      "$oid": "6824babf4a6dac5d2f7336c5"
+    },
+    {
+      "$oid": "6824bb784a6dac5d2f7336d9"
+    },
+    {
+      "$oid": "6824c6594a6dac5d2f73370c"
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b6f8b34fde07b194c0fe8"
+  },
+  "title": "Lyft Titanic!",
+  "description": "Det sicilianska projektet är århundradets mest välbevarade hemlighet och presidentens eget skötebarn. När ett samband upptäcks mellan detta topphemliga försvarsvapen och Titanic, får Dirk Pitt leda en grupp experter för att bärga vraket till varje pris.",
+  "author": "Clive Cussler",
+  "genres": [
+    "Äventyr",
+    "Thriller",
+    "Action",
+    "Maritim fiction"
+  ],
+  "image": "clive-cussler-lyft-titanic",
+  "published_year": 1976,
+  "reviews": [
+    {
+      "$oid": "6824bae84a6dac5d2f7336d0"
+    },
+    {
+      "$oid": "6824be454a6dac5d2f7336e2"
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b715d34fde07b194c0fec"
+  },
+  "title": "Harry Potter och De vises sten",
+  "description": "Mystiska stjärnskott på himlen och svärmar av ugglor mitt på dagen, katter som läser kartor och underliga människor står i gathörnen och viskar om Harry Potter. Den föräldralöse pojken bor hos sin elaka moster och morbror, men allt förändras när han får veta att han är en trollkarl och börjar på Hogwarts skola för häxkonster och trolldom.",
+  "author": "J.K. Rowling",
+  "genres": [
+    "Fantasy",
+    "Äventyr",
+    "Ungdomsbok"
+  ],
+  "image": "jk-rowling-harry-potter-och-de-vises-sten",
+  "published_year": 1999,
+  "reviews": [
+    {
+      "$oid": "6824be994a6dac5d2f7336e7"
+    },
+    {
+      "$oid": "6824bf054a6dac5d2f7336ed"
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b718d34fde07b194c0fee"
+  },
+  "title": "Harry Potter och Hemligheternas kammare",
+  "description": "Sommarlovet är äntligen över och Harry Potter återvänder till sitt andra år på Hogwarts. Men någon vill stoppa honom, och när han väl kommer till skolan börjar mystiska händelser - elever blir förstenade en efter en. Är det Harrys fiende Draco Malfoy som ligger bakom, eller kan det vara Harry själv som alla misstänker?",
+  "author": "J.K. Rowling",
+  "genres": [
+    "Fantasy",
+    "Äventyr",
+    "Ungdomsbok"
+  ],
+  "image": "jk-rowling-harry-potter-och-hemligheternas-kammare",
+  "published_year": 2000,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b71ce34fde07b194c0ff0"
+  },
+  "title": "Harry Potter och Fången från Azkaban",
+  "description": "Harry börjar sitt tredje år på Hogwarts när den ökände massmördaren Sirius Black rymmer från trollkarlsfängelset Azkaban. Det sägs att han är på väg mot Hogwarts, och de grymma fångvaktarna Dementorerna kallas in för att vakta skolan. Harry är fast besluten att lösa mysteriet med Sirius Black.",
+  "author": "J.K. Rowling",
+  "genres": [
+    "Fantasy",
+    "Äventyr",
+    "Ungdomsbok"
+  ],
+  "image": "jk-rowling-harry-potter-och-fangen-fran-azkaban",
+  "published_year": 2001,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b73e234fde07b194c0ff8"
+  },
+  "title": "Da Vinci-koden",
+  "description": "När den välrenommerade kuratorn på Louvren mördas lämnar han efter sig en gåtfull kod. Professor Robert Langdon och kryptografen Sophie Neveu tvingas lösa en serie komplicerade gåtor och chiffer, jagade av både polis och mördare. Ledtrådarna för dem genom Paris och London på jakt efter en hemlighet skyddad av ett hemligt sällskap i nästan 2000 år.",
+  "author": "Dan Brown",
+  "genres": [
+    "Thriller",
+    "Mysterium",
+    "Äventyr"
+  ],
+  "image": "dan-brown-da-vinci-koden",
+  "published_year": 2004,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b73ee34fde07b194c0ffa"
+  },
+  "title": "I cirkelns mitt",
+  "description": "När NASA upptäcker en meteorit med fossil från livsformer i arktisk is, kan detta vara beviset för liv utanför jorden. Underrättelseanalytikern Rachel Sexton och ett team av forskare kallas in för att bekräfta fyndet, som kan hjälpa presidentens omvalkampanj. Men snart inser de att något inte stämmer, och de blir snart jagade av personer som vill tysta dem för alltid.",
+  "author": "Dan Brown",
+  "genres": [
+    "Thriller",
+    "Vetenskap",
+    "Spänning"
+  ],
+  "image": "dan-brown-i-cirkelns-mitt",
+  "published_year": 2005,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b73f834fde07b194c0ffc"
+  },
+  "title": "Den förlorade symbolen",
+  "description": "Harvardprofessorn i religiös symbolik, Robert Langdon, kallas för att hålla en föreläsning i Kapitolium i Washington. Efter hans ankomst hittas ett märkligt kodad föremål i byggnadens rotunda. När hans mentor och framstående frimurare Peter Solomon kidnappas, måste Langdon följa en rad gåtfulla ledtrådar som leder honom genom Washingtons dolda historia.",
+  "author": "Dan Brown",
+  "genres": [
+    "Thriller",
+    "Mysterium",
+    "Äventyr"
+  ],
+  "image": "dan-brown-den-forlorade-symbolen",
+  "published_year": 2009,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b743134fde07b194c0ffe"
+  },
+  "title": "Vägen till Jerusalem",
+  "description": "Nådens år 1150 föds Arn Magnusson på Arnäs gård vid Vänerns strand. Efter att ha blivit moderlös tas han om hand av cisterciensermunkarna i Varnhems kloster, där han får sin tids främsta bildning. Av den tidigare tempelriddaren broder Guilbert lär han sig hantera svärd och båge. När han återvänder till världen utanför klostret dras han in i maktspelet mellan de rivaliserande kungasläkterna och förälskar sig i Cecilia Algotsdotter.",
+  "author": "Jan Guillou",
+  "genres": [
+    "Historisk roman",
+    "Äventyr",
+    "Medeltid"
+  ],
+  "image": "jan-guillou-vagen-till-jerusalem",
+  "published_year": 1998,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b743934fde07b194c1000"
+  },
+  "title": "Tempelriddaren",
+  "description": "Arn är 27 år och redan en erfaren veteran bland korsfararna i Det heliga landet. Tio år har gått sedan han red från Västergötland för sin tjugoåriga botgöring i Palestina. Som borgherre i Gaza får han uppleva hur korsfararna, som styrs av antingen överdrivet kristet nit eller ren plundringslust, ställer till mer problem än de löser. Hans väg korsas av den fruktade muslimske härföraren Saladin.",
+  "author": "Jan Guillou",
+  "genres": [
+    "Historisk roman",
+    "Äventyr",
+    "Medeltid"
+  ],
+  "image": "jan-guillou-tempelriddaren",
+  "published_year": 1999,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b744334fde07b194c1002"
+  },
+  "title": "Riket vid vägens slut",
+  "description": "Året är 1192 när Arn Magnusson efter tjugo års botgöringstjänst återvänder till Västra Götaland. Där råder tillfällig fred i väntan på ett avgörande. Med sig från det Heliga landet har han kunskap och rikedomar som han ämnar använda för att bygga upp sitt hemland. Men hans kärlek Cecilia Algotsdotter har också väntat i tjugo år, och politiska intriger väntar dem båda.",
+  "author": "Jan Guillou",
+  "genres": [
+    "Historisk roman",
+    "Äventyr",
+    "Medeltid"
+  ],
+  "image": "jan-guillou-riket-vid-vagens-slut",
+  "published_year": 2000,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b74fc34fde07b194c1004"
+  },
+  "title": "Hypnotisören",
+  "description": "Ett larm inkommer mitt i natten om ett inbrott på en vinterstängd campingplats utanför Stockholm. När polisen kommer till platsen upptäcker de en skrämmande brottsplats med en styckad kropp. Den sjuttonårige Hugo Sand hittas sovande med en avhuggen arm som kudde. Kriminalkommissarie Joona Linna kallar in hypnotisören Erik Maria Bark för att med hypnos försöka ta reda på vad som egentligen hände.",
+  "author": "Lars Kepler",
+  "genres": [
+    "Kriminalroman",
+    "Thriller",
+    "Deckare"
+  ],
+  "image": "lars-keppler-hypnotisoren",
+  "published_year": 2009,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b750434fde07b194c1006"
+  },
+  "title": "Sandmannen",
+  "description": "En ung man hittas vandrande längs ett järnvägsspår utanför Stockholm. Han lider av svår hypothermi och förs till sjukhus där läkarna upptäcker att han har varit försvunnen och antagits död i tretton år. När kriminalkommissarie Joona Linna börjar undersöka fallet, leder spåren till en seriemördare som kallas Sandmannen, och en fruktansvärd hemlighet från det förflutna kommer upp till ytan.",
+  "author": "Lars Kepler",
+  "genres": [
+    "Kriminalroman",
+    "Thriller",
+    "Deckare"
+  ],
+  "image": "lars-keppler-sandmannen",
+  "published_year": 2012,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b750c34fde07b194c1008"
+  },
+  "title": "Lazarus",
+  "description": "För tre år sedan fick Saga Bauer ett vykort med en hotfull text om en pistol med nio vita kulor, varav en väntar på Joona Linna. Efter flera år i skymundan tvingas Joona Linna och Saga Bauer återförenas för att spåra en mördare som alla trodde var död. En obehaglig jakt på en motståndare som tycks kunna förutse varje drag börjar, och Joona inser att de möter en mördare som är mer farlig än någon annan.",
+  "author": "Lars Kepler",
+  "genres": [
+    "Kriminalroman",
+    "Thriller",
+    "Deckare"
+  ],
+  "image": "lars-keppler-lazarus",
+  "published_year": 2018,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b767934fde07b194c100a"
+  },
+  "title": "Män som hatar kvinnor",
+  "description": "Industrimannen Henrik Vanger anlitar journalisten Mikael Blomkvist för att undersöka ett mysterium – hans brorsdotter Harriet försvann spårlöst för nästan 40 år sedan. Blomkvist får hjälp av den asociala men geniala datahackern Lisbeth Salander. Tillsammans avslöjar de en mörk familjehemlighet och kommer på spåren av en seriemördare som varit verksam i årtionden.",
+  "author": "Stieg Larsson",
+  "genres": [
+    "Kriminalroman",
+    "Thriller",
+    "Samhällskritik"
+  ],
+  "image": "stieg-larsson-man-som-hatar-kvinnor",
+  "published_year": 2005,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b767f34fde07b194c100c"
+  },
+  "title": "Män som hatar kvinnor",
+  "description": "Industrimannen Henrik Vanger anlitar journalisten Mikael Blomkvist för att undersöka ett mysterium – hans brorsdotter Harriet försvann spårlöst för nästan 40 år sedan. Blomkvist får hjälp av den asociala men geniala datahackern Lisbeth Salander. Tillsammans avslöjar de en mörk familjehemlighet och kommer på spåren av en seriemördare som varit verksam i årtionden.",
+  "author": "Stieg Larsson",
+  "genres": [
+    "Kriminalroman",
+    "Thriller",
+    "Samhällskritik"
+  ],
+  "image": "stieg-larsson-man-som-hatar-kvinnor",
+  "published_year": 2005,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b768634fde07b194c100e"
+  },
+  "title": "Luftslottet som sprängdes",
+  "description": "Lisbeth Salander återhämtar sig på sjukhus efter att ha blivit allvarligt skadad, samtidigt som hon väntar på rättegång för tre mord hon inte begått. Mikael Blomkvist arbetar intensivt för att bevisa hennes oskuld och avslöja en omfattande konspiration inom svenska säkerhetstjänsten. Den slutgiltiga konfrontationen mellan Lisbeth och hennes förflutna kan inte längre skjutas upp.",
+  "author": "Stieg Larsson",
+  "genres": [
+    "Kriminalroman",
+    "Thriller",
+    "Samhällskritik"
+  ],
+  "image": "stieg-larsson-luftslottet-som-sprangdes",
+  "published_year": 2007,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b771334fde07b194c1010"
+  },
+  "title": "Näcken",
+  "description": "En mysryslig berättelse inspirerad av svensk folktro. När Embla flyttar till en liten by i skogen för att komma bort från storstadsstressen, upptäcker hon att den lokala sjön ruvar på mörka hemligheter. Mystiska händelser börjar inträffa, och lokalbefolkningen pratar om Näcken, en vattenvarelse som lockar sina offer med förtrollande musik. Embla dras in i en värld där myt och verklighet smälter samman.",
+  "author": "Stina Rundqvist",
+  "genres": [
+    "Fantasy",
+    "Folktro",
+    "Mysrys"
+  ],
+  "image": "stina-runsdqvist-nacken",
+  "published_year": 2023,
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b771a34fde07b194c1012"
+  },
+  "title": "Vindens namn",
+  "description": "En ung pojke med extraordinära förmågor blir hemlös efter en fruktansvärd tragedi. Efter år av överlevnad på gatorna lyckas han bli antagen till Universitetets magiskola, där han hoppas hitta svar om den mystiska grupp som förstörde hans familj. Detta är den första delen i den hyllade serien Berättelsen om kungadråparen, där vi följer Kvothes märkliga livshistoria.",
+  "author": "Patrick Rothfuss",
+  "genres": [
+    "Fantasy",
+    "Äventyr",
+    "Magi"
+  ],
+  "image": "patrick-rothfuss-vindens-namn-del-1",
+  "published_year": 2014,
+  "reviews": [],
+  "__v": 0
+}]
