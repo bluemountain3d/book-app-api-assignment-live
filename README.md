@@ -1,26 +1,105 @@
-# API and Client README
+# Book API with Secure User Management
 
 ## Project Overview
 
-This project consists of two parts: an API built with Node.js/Express and a client application built with Vue/Vite. The system manages users, books, and reviews through a MongoDB database.
+This project is a Book API with a focus on secure user management, developed as a group assignment. The system consists of two parts: an API built with Node.js/Express and a client application built with Vue/Vite. The API is partially password-protected and manages data about books, users, and reviews using MongoDB as the database.
 
-## Database Structure
+## Assignment Description
 
-The database contains the following clusters:
+The assignment involved creating a REST API to manage books, users, and reviews with the following functionality:
 
-- `users` - User information
-- `books` - Book information
-- `reviews` - Reviews
+- Secure authentication of users with registration, login, and logout
+- CRUD operations for users, books, and reviews
+- Password-protected administration of the system
+- User-friendly client interface to interact with the API
+- Correctly structured data model in MongoDB
 
-## API (Backend)
+The API contains three main data models:
+
+1. Users - with information about username, password, admin status, etc.
+2. Books - with information about title, author, description, genres, etc.
+3. Reviews - with feedback about books and ratings
+
+## Technical Specification
 
 ### Technologies
+
+#### Backend (API)
 
 - Node.js
 - Express
 - MongoDB
+- JWT for authentication
 
-### Installation
+#### Frontend (Client)
+
+- Vue.js
+- Vite
+
+### Database (MongoDB)
+
+The database has the following structures:
+
+#### Users Collection
+
+- username: String
+- password: String (encrypted)
+- is_admin: Boolean
+- created_at: Date
+
+#### Books Collection
+
+- title: String
+- description: String
+- author: String
+- genres: Array
+- image: String
+- published_year: Number
+- reviews: Array of references to Reviews Collection
+
+#### Reviews Collection
+
+- name: String
+- content: String
+- rating: Number (1-5)
+- created_at: Date
+
+### API Endpoints
+
+The API exposes the following endpoints:
+
+#### User Management
+
+- GET /users - Get all users
+- GET /users/:id - Get specific user
+- PATCH /users/:id - Update user (requires token)
+- DELETE /users/:id - Delete user (requires token)
+
+#### Authentication
+
+- POST /auth/login - Login user
+- POST /auth/logout - Logout user
+- POST /auth/register - Register new user
+
+#### Books
+
+- GET /books - Get all books
+- GET /books/:id - Get specific book with reviews
+- POST /books - Create new book (requires token)
+- PATCH /books/:id - Update book (requires token)
+- DELETE /books/:id - Delete book (requires token)
+
+#### Reviews
+
+- GET /reviews - Get all reviews
+- GET /reviews/:id - Get specific review
+- POST /reviews - Create new review (requires token)
+- PATCH /reviews/:id - Update review (requires token)
+- DELETE /reviews/:id - Delete review (requires token)
+
+## Installation
+
+### API (Backend)
 
 1. Clone the project
 2. Navigate to the API folder
@@ -30,21 +109,23 @@ The database contains the following clusters:
 npm install
 ```
 
-### Configuration
-
-Create a `.env` file in the API folder with the following variables:
+4. Configure environment variables:
+   Create a `.env` file in the API folder with the following variables:
 
 ```
-DB_USER = admin
-DB_PASSWORD = admin1234
-DB_CLUSTER = cluster0.abcdefg.mongodb.net
-DB_DATABASE = dbName
-JWT_SECRET = secret
+PORT=3000
+DB_USER=admin
+DB_PASSWORD=admin1234
+DB_CLUSTER=cluster.abcdefg.mongodb.net
+DB_DATABASE=dbName
+JWT_SECRET=your_jwt_secret_key
 ```
 
 Replace values with your own database configuration.
 
-### Start the API:
+> NOTE! Important that DB_CLUSTER=...mongo.net doesn't end with a `/`.
+
+5. Start the API:
 
 ```
 npm run dev
@@ -52,14 +133,7 @@ npm run dev
 
 The API will run on `http://localhost:3000`.
 
-## Client (Frontend)
-
-### Technologies
-
-- Vue.js
-- Vite
-
-### Installation
+### Client (Frontend)
 
 1. Navigate to the Client folder
 2. Install dependencies:
@@ -68,17 +142,16 @@ The API will run on `http://localhost:3000`.
 npm install
 ```
 
-### Configuration
-
-Create a `.env` file in the Client folder with the following variable:
+3. Configure environment variables:
+   Create a `.env` file in the Client folder with the following variable:
 
 ```
-VITE_API_URL = http://localhost:3000/
+VITE_API_URL=http://localhost:3000/
 ```
 
 > NOTE! The trailing `/` is important.
 
-### Start the client
+4. Start the client:
 
 ```
 npm run dev
@@ -88,10 +161,50 @@ The client application will run on `http://localhost:5173` (default Vite port).
 
 ## Usage
 
-After both the API and Client have been started, you can use the system by visiting the client URL in your browser. The API handles database interactions and the client provides the user interface.
+### For Developers
+
+The API can be tested with tools such as Postman, Insomnia, cURL or Thunder Client. Example of an API request:
+
+```bash
+# Login as a user
+curl -X POST http://localhost:3000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "exampleuser", "password": "examplepassword"}'
+```
+
+### For Client Users
+
+After both the API and Client have been started, you can use the system by visiting the client URL in your browser:
+
+- Visit `/register` to create a new account
+- Log in at `/login` with your credentials
+- Browse books on the homepage
+- Click on a specific book to see details and reviews
+- Create reviews for books you have read
+
+### Admin Access
+
+To access the Admin panel, you need to change the user type to admin in the database. This cannot be done through the standard API endpoints for security reasons.
+
+1. Connect to your MongoDB instance
+2. Find the user in the `users` collection
+3. Update the `is_admin` field to `true`
+4. After this change, the user will have access to the Admin panel and administrative functions
+
+Example MongoDB command:
+
+```javascript
+db.users.updateOne({ username: 'your_username' }, { $set: { is_admin: true } });
+```
 
 ## Important Notes for Assessment
 
 - Make sure MongoDB is running and accessible
 - Verify that all environment variables are properly configured
 - The API must be started before the client for the system to work properly
+
+## Group Members and Areas of Responsibility
+
+- [David Brunni](https://github.com/AgnesWilson): Area of responsibility 1
+- [Egil Eskilsson](https://github.com/bluemountain3d): Area of responsibility 2
+- [Agnes Wilson](https://github.com/DavidBrunni): Area of responsibility 3
