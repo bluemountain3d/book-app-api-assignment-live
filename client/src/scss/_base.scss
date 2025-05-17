@@ -8,9 +8,17 @@ html {
 
 body {
   font-size: 1rem;
+  min-height: 100dvh;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  min-height: 100%;
+  flex: 1;
 }
+
 
