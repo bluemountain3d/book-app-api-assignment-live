@@ -42,7 +42,7 @@ onMounted(() => {
               <th class="table__heading">Användarnamn</th>
               <th class="table__heading">Admin</th>
               <th class="table__heading">Skapad</th>
-              <th class="table__heading">Lösenord (hash)</th>
+              <th class="table__heading"></th>
             </tr>
           </thead>
           <tbody class="table__body">
@@ -55,7 +55,8 @@ onMounted(() => {
               <td class="table__cell">{{ user.username }}</td>
               <td class="table__cell">{{ user.is_admin ? 'Ja' : 'Nej' }}</td>
               <td class="table__cell">{{ new Date(user.createdAt).toLocaleString() }}</td>
-              <td class="table__cell">{{ user.password }}</td>
+               <!-- Add buttons for Update and Remove -->
+              <td class="table__cell"></td>
             </tr>
           </tbody>
         </table>
@@ -70,12 +71,12 @@ onMounted(() => {
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
+  /* border-collapse: collapse; */
+  /* width: 100%; */
 }
 th,
 td {
-  padding: 8px;
-  border: 1px solid #ccc;
+  /* padding: 8px; */
+  /* border: 1px solid #ccc; */
 }
 </style>
