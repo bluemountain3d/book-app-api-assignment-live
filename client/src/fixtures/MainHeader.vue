@@ -96,11 +96,15 @@
 <style scoped lang="scss">
 
 .header {
-
+  z-index: 999;
+  position: sticky;
+  width: 100%;
+  top: 0;
   box-shadow:
     0 .125rem 0.25rem rgba(black, .08),
     0 .25rem .75rem rgba(black, .08)
   ;
+  background-color: var(--color-background-primary);
 
   &__inner {
     position: relative;
