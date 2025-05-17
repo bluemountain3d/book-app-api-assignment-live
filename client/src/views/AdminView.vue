@@ -5,12 +5,14 @@
 </script>
 
 <template>
-  <div class="admin container-boxed">
-    <h1 class="admin__title">Adminpanel</h1>
-    <UserAdmin />
-    <AddBook />
-    <BooksTable />
-  </div>
+  <main>
+    <div class="admin container-boxed">
+      <h1 class="admin__title">Adminpanel</h1>
+      <UserAdmin />
+      <AddBook />
+      <BooksTable />
+    </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>

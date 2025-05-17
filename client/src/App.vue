@@ -8,13 +8,10 @@
 </script>
 
 <template>
-
   <SvgSymbols />
   <MainHeader />
   <RouterView />
   <MainFooter />
-
-
 </template>
 
 <style lang="scss" scoped></style>

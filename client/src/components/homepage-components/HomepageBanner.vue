@@ -1,70 +1,97 @@
 <template>
-    <section class="hero-image">
-      <img
-        src="@/assets/home-banner-image.png"
-        alt="Bild på person i en hängmatta som läser en bok"
-        class="bg-img"
-      />
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <h1 class="header">B.O.K. <span class="header-text">– Biooptiskt Organiserad Kunskap</span></h1>
-        <p class="paragraph">Där orden får mening</p>
+    <section class="section banner">
+      <div class="container-boxed">
+        <div class="banner__inner">
+          <picture class="banner__image">
+            <source
+              srcset="/images/home-banner-image-w1440.avif"
+              type="image/avif"
+            />
+            <source
+              srcset="/images/home-banner-image-w1440.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/home-banner-image-w1440.jpg"
+              alt="Bild på person i en hängmatta som läser en bok"
+              class="book__cover-img"
+            />
+          </picture>
+          <div class="banner__overlay">
+            <div class="banner__content">
+              <h1 class="banner__title">B.O.K. <span class="banner__subtitle">– Biooptiskt Organiserad Kunskap</span></h1>
+              <p class="banner__byline">Där orden får mening</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 </template>
 
 <style scoped lang="scss">
-.hero-image {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-block: 3rem;
+.banner {
 
-  .bg-img {
+  &__inner {
+    position: relative;
     width: 100%;
-    max-width: 70rem;
     height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    aspect-ratio: 3/1;
+    overflow: clip;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__image img {
     display: block;
-  }
-
-  .overlay {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     width: 100%;
-    max-width: 70rem;
-    height: 81%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .text-overlay {
+  &__overlay {
     position: absolute;
-    top: 50%;
-    left: 45%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    background-color: rgba(black, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
     color: white;
-
-    z-index: 2;
-
-    .header {
-      font-size: var(--font-size-800);
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-
-      .header-text {
-        font-size: var(--font-size-600);
-        font-weight: 500;
-      }
-    }
-
-  .paragraph {
-      font-size: var(--font-size-500);
-      font-weight: 400;
-    }
   }
+
+  &__content {
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__title {
+    // width: 100%;
+    font-size: var(--font-size-900);
+    font-weight: 500;
+    line-height: 1.2;
+    // argin-bottom: 0.25em;
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-800);
+  }
+
+  &__byline {
+    font-size: var(--font-size-600);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
 }
 </style>
 

@@ -18,7 +18,7 @@ const popularBooks = computed(() =>
 
 
 <template>
-  <section class="books">
+  <section class="section books">
     <div class="container-boxed">
       <h2 class="books__main-title">Populära just nu</h2>
 
@@ -57,19 +57,18 @@ const popularBooks = computed(() =>
 <style lang="scss" scoped>
 
 .books {
-  margin-block-end: 4rem;
 
   &__main-title {
-    padding-block: 1rem;
     font-size: var(--font-size-700);
     font-weight: 700;
     color: var(--color-primary);
+    margin-block-end: 2.5rem;
   }
 
   &__group {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr));
     gap: 3rem;
   }
 }
@@ -134,10 +133,20 @@ const popularBooks = computed(() =>
   }
 
   &__description {
+    position: relative;
+    font-size: var(--font-size-300);
     line-height: 1.4;
     color: var(--color-body-text);
-    padding-block: 0.6rem;
-  }
+    margin-block: 0.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    display: box;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    text-overflow: ellipsis;
+}
 
   &__button {
     margin-block-start: auto;

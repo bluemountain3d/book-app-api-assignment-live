@@ -20,59 +20,61 @@
 </script>
 
 <template>
-  <section class="books">
-    <div class="container-boxed">
-      <h1 class="books__main-title">Våra böcker</h1>
+  <main>
+    <section class="books">
+      <div class="container-boxed">
+        <h1 class="books__main-title">Våra böcker</h1>
 
-      <div class="books__filter"></div>
+        <div class="books__filter"></div>
 
-      <div class="books__shelf">
+        <div class="books__shelf">
 
-        <article class="book" v-for="book in books" :key="book._id">
-          <picture class="book__cover">
-            <source
-              :srcset="`/images/book-covers/${book.image}-w384.avif`"
-              type="image/avif"
-            />
-            <source
-              :srcset="`/images/book-covers/${book.image}-w384.webp`"
-              type="image/webp"
-            />
-            <img
-              :src="`/images/book-covers/${book.image}-w384.jpg`"
-              :alt="`Omslag till boken '${book.title}' av ${book.author}`"
-              class="book__cover-img"
-            />
-          </picture>
+          <article class="book" v-for="book in books" :key="book._id">
+            <picture class="book__cover">
+              <source
+                :srcset="`/images/book-covers/${book.image}-w384.avif`"
+                type="image/avif"
+              />
+              <source
+                :srcset="`/images/book-covers/${book.image}-w384.webp`"
+                type="image/webp"
+              />
+              <img
+                :src="`/images/book-covers/${book.image}-w384.jpg`"
+                :alt="`Omslag till boken '${book.title}' av ${book.author}`"
+                class="book__cover-img"
+              />
+            </picture>
 
-          <section class="book__data">
-            <header class="book__header">
-              <h2 class="book__title">{{ book.title }}</h2>
-              <p class="book__metadata">
-                <span class="book__author">{{ book.author }}</span>
-                <span class="book__published-year">Utgivningsår: {{ book.published_year }}</span>
-              </p>
-            </header>
-            <section class="book__genres-section">
-              <h3 class="book__genres-title">Genrer:</h3>
-              <ul class="book__genres-list">
-                <li class="book__genre-item" v-for="genre in book.genres" :key="genre">
-                  <span class="book__genre-tag">{{ genre }}</span>
-                </li>
-              </ul>
+            <section class="book__data">
+              <header class="book__header">
+                <h2 class="book__title">{{ book.title }}</h2>
+                <p class="book__metadata">
+                  <span class="book__author">{{ book.author }}</span>
+                  <span class="book__published-year">Utgivningsår: {{ book.published_year }}</span>
+                </p>
+              </header>
+              <section class="book__genres-section">
+                <h3 class="book__genres-title">Genrer:</h3>
+                <ul class="book__genres-list">
+                  <li class="book__genre-item" v-for="genre in book.genres" :key="genre">
+                    <span class="book__genre-tag">{{ genre }}</span>
+                  </li>
+                </ul>
+              </section>
+
+              <ButtonComponent
+                label="Gå till boken"
+                :to="`/books/${book._id}`"
+                class="book__button"
+              />
             </section>
+          </article>
+        </div>
 
-            <ButtonComponent
-              label="Gå till boken"
-              :to="`/books/${book._id}`"
-              class="book__button"
-            />
-          </section>
-        </article>
       </div>
-
-    </div>
-  </section>
+    </section>
+  </main>
 </template>
 
 <style lang="scss" scoped>

@@ -24,6 +24,10 @@ const props = defineProps({
   disabled: {
     type: Boolean,
     default: false
+  },
+  widthClass: {
+    type: String,
+    default: "auto"
   }
 });
 
@@ -47,7 +51,7 @@ const handleClick = (event) => {
   <RouterLink
     v-if="to"
     :to="to"
-    :class="['CTA-button', typeOfBtn, { 'disabled': disabled }]"
+    :class="['CTA-button', typeOfBtn, widthClass, { 'disabled': disabled }]"
     :tabindex="disabled ? -1 : 0"
   >
     <span>{{ label }}</span>
@@ -57,7 +61,7 @@ const handleClick = (event) => {
     v-else
     :type="type"
     @click="handleClick"
-    :class="['CTA-button', typeOfBtn, { 'disabled': disabled }]"
+    :class="['CTA-button', typeOfBtn, widthClass, { 'disabled': disabled }]"
     :disabled="disabled"
   >
     <span>{{ label }}</span>
@@ -71,7 +75,8 @@ button {
 
 .CTA-button {
   cursor: pointer;
-  padding: 0.75rem 2rem;
+  box-sizing: border-box;
+  padding: .875rem 2rem;
   background-color: var(--color-accent);
   border-radius: 100px;
 
@@ -87,6 +92,7 @@ button {
   text-transform: uppercase;
   text-decoration: none;
   text-align: center;
+  width: fit-content;
 
   transition: color .2s ease, background-color .2s ease;
 
@@ -113,5 +119,13 @@ button {
   &:active:not(.disabled) {
     background-color: var(--color-primary-shade);
   }
+}
+
+// Width Classes
+.full {
+  width: 100%;
+}
+.auto {
+  width: auto;
 }
 </style>

@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 
   import HomepageBanner from '@/components/homepage-components/HomepageBanner.vue';
   import PopularBooks from '@/components/homepage-components/PopularBooks.vue';
-  import BookShelf from '@/components/BookShelf.vue';
+  import BookShelf from '@/components/homepage-components/BookShelf.vue';
 
   const API_URL = import.meta.env.VITE_API_URL;
   const books = ref([]);
@@ -21,9 +21,11 @@ import { ref, onMounted } from 'vue';
 </script>
 
 <template>
+  <main>
     <HomepageBanner />
     <PopularBooks :books="books"/>
 
     <BookShelf />
+  </main>
 </template>
 <style scoped lang="scss"></style>

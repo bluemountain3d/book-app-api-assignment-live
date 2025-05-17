@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 import { useAuthStore } from '@/stores/auth'
+import CTAButton from '@/components/ButtonComponent.vue';
 
 const API_URL = import.meta.env.VITE_API_URL;
 const username = ref('')
@@ -55,36 +56,63 @@ const login = async () => {
 </script>
 
 <template>
-  <div class="login-container">
-    <h2>Logga in</h2>
-    <form @submit.prevent="login">
-      <input v-model="username" type="text" placeholder="Användarnamn" required />
-      <input v-model="password" type="password" placeholder="Lösenord" required />
-      <button type="submit">Logga in</button>
-    </form>
-  </div>
+  <main>
+    <section class="section login">
+      <div class="login-container">
+        <h2 class="login__title">Logga in</h2>
+        <form class="form" @submit.prevent="login">
+          <div class="form__field">
+            <label for="username" class="form__label visually-hidden">Användarnamn</label>
+            <input v-model="username" type="text" id="username" class="form__input" placeholder="Användarnamn" required />
+          </div>
+          <div class="form__field">
+            <label for="password" class="form__label visually-hidden">Lösenord</label>
+            <input v-model="password" type="password" id="password" class="form__input" placeholder="Lösenord" required />
+          </div>
+          <div class="form__actions">
+            <CTAButton
+              class="login__button"
+              label="Logga in"
+              type="submit"
+              typeOfBtn="primary-btn"
+              widthClass="full"
+            />
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .login-container {
   max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
+  /* padding: 20px; */
   text-align: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.login {
+
+  &__title {
+    color: var(--color-primary);
+    margin-block-end: 2rem;
+  }
+  &__button {}
 }
 
-input {
+/* form {
+  display: flex;
+  flex-direction: column;
+} */
+
+/* input {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 16px;
-}
+} */
 
-button {
+/* button {
   padding: 10px;
   background-color: #28a745;
   color: white;
@@ -94,5 +122,5 @@ button {
 
 button:hover {
   background-color: #218838;
-}
+} */
 </style>

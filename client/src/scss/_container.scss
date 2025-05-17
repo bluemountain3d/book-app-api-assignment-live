@@ -1,11 +1,13 @@
 $max-content-width: 90rem;
 
 .section {
+  position: relative;
   width: 100%;
-  padding-block: 6vmin;
+  padding-block: min(6vmin, 4rem);
 }
 
 .container {
+  position: relative;
   width: 100%;
   margin: 0;
   padding-inline: max(.75rem, 3.125%);

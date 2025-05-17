@@ -28,10 +28,11 @@ onMounted(async () => {
 </script>
 
 <template>
-  <BookDetails :book="book" />
-  <ReviewComponent :reviews="book.reviews || []" />
-  <LoggedInNewReview />
-
+  <main>
+    <BookDetails :book="book" />
+    <ReviewComponent :reviews="book.reviews || []" />
+    <LoggedInNewReview />
+  </main>
 </template>
 
 <style lang="scss" scoped></style>

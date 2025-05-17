@@ -80,11 +80,12 @@
       font-size: var(--font-size-700);
       font-weight: 700;
       line-height: 1.5;
-      margin-block-end: 2.5rem;
+      margin-block-end: 2rem;
       color: var(--color-primary);
     }
 
     &__list {
+      // padding-block: .5rem;
       width: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
@@ -93,7 +94,7 @@
       overflow: clip;
       justify-content: center;
       gap: 1.8125rem;
-      overflow: visible;
+      overflow: clip;
     }
   }
 
@@ -101,6 +102,7 @@
     cursor: pointer;
     position: relative;
     z-index: 1;
+    margin-top: .5rem;
     padding: 0 .75rem .75rem .75rem;
     transition: transform .5s ease;
 

@@ -4,7 +4,7 @@
   text-align: left;
   line-height: 1;
   font-size: var(--font-size-200);
-  overflow: hidden;
+  // overflow: hidden;
 
   scrollbar-width: thin;
   &::-webkit-scrollbar {
@@ -16,7 +16,7 @@
   }
 
   &-wrapper {
-    overflow: clip;
+    overflow: auto;
     width: 100%;
     max-height: calc(11 * (1.5rem + var(--font-size-200)));
     overflow-y: scroll;
@@ -28,7 +28,9 @@
   }
 
   &__header { // thead
-
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
 
   &__heading,
@@ -37,7 +39,10 @@
   }
 
   &__heading { // th
+    z-index: 2;
     font-weight: 700;
+    position: sticky;
+    top: 0;
     // color: var(--color-primary);
     color: var(--color-background-primary);
     // background-color: var(--color-background-primary);
@@ -45,8 +50,7 @@
     // border-top: 0.0625rem solid var(--color-details);
     // border-bottom: 2px solid var(--color-details);
 
-    position: sticky;
-    top: 0;
+
 
     // &:first-of-type {
     //   border-left: 0.0625rem solid var(--color-details);
