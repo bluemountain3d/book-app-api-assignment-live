@@ -28,6 +28,7 @@ onMounted(async () => {
             <th class="table__heading">Författare</th>
             <th class="table__heading">Utgiven</th>
             <th class="table__heading">Genrer</th>
+            <th class="table__heading"></th>
           </tr>
         </thead>
         <tbody class="table__body">
@@ -36,6 +37,8 @@ onMounted(async () => {
             <td class="table__cell">{{ book.author }}</td>
             <td class="table__cell">{{ book.published_year }}</td>
             <td class="table__cell">{{ book.genres.join(', ') }}</td>
+            <!-- Add buttons for Update and Remove -->
+            <td class="table__cell"></td>
           </tr>
         </tbody>
       </table>
