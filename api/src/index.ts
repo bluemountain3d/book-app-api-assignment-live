@@ -15,8 +15,7 @@ const app = express();
 // Midlewares
 app.use(express.json());
 app.use(cors({
-  // origin: 'http://localhost:5173',
-  origin: 'https://book-app-client-egileskilsson.vercel.app',
+  origin: process.env.CORS_ORIGIN || 'https://book-app-client-egileskilsson.vercel.app',
   credentials: true   
 }));
 app.use(cookieParser());
