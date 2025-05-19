@@ -1,9 +1,14 @@
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { computed } from 'vue';
   import { RouterLink } from 'vue-router';
+  // import ButtonComponent from '../ButtonComponent.vue';
 
-  const API_URL = import.meta.env.VITE_API_URL;
-
+  const props = defineProps({
+  books: {
+    type: Array,
+    required: true
+  }
+  });
 
   const shuffle = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -13,19 +18,9 @@
     return array;
   };
 
-  const books = ref([]);
-
-  onMounted( async () => {
-    try {
-      const response = await fetch(`${API_URL}books`);
-      const data = await response.json();
-      // console.log(data);
-      // console.log('Books loaded')
-      books.value = shuffle(data).slice(0, 7);
-    } catch (error) {
-      console.log(error);
-    }
-  });
+  const books = computed(() =>
+      Array.isArray(props.books) ? shuffle(props.books) : []
+  );
 </script>
 
 
@@ -93,7 +88,8 @@
       grid-auto-rows: 0;
       overflow: clip;
       justify-content: center;
-      gap: 1.8125rem;
+      column-gap: 1.8125rem;
+      // row-gap: 4rem;
       overflow: clip;
     }
   }
@@ -102,7 +98,7 @@
     cursor: pointer;
     position: relative;
     z-index: 1;
-    margin-top: .5rem;
+    margin-block: .5rem;
     padding: 0 .75rem .75rem .75rem;
     transition: transform .5s ease;
 
@@ -163,7 +159,4 @@
       color: var(--color-subtle-text);
     }
   }
-
-
-
 </style>
