@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   // origin: 'http://localhost:5173',
-  origin: 'https://book-app-client-gules.vercel.app',
+  origin: 'https://book-app-client-egileskilsson.vercel.app',
   credentials: true   
 }));
 app.use(cookieParser());
@@ -32,5 +32,5 @@ connectToDatabase();
 
 const PORT = 3000;
 app.listen(PORT, () => {
-  // console.log(`Server running at http://localhost:${PORT}`)
+  console.log(`Server running at ${PORT}`)
 })
