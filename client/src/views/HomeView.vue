@@ -21,11 +21,11 @@ import { ref, onMounted } from 'vue';
 </script>
 
 <template>
+
   <main>
     <HomepageBanner />
     <PopularBooks :books="books"/>
 
-    <BookShelf />
+    <BookShelf :books="books"/>
   </main>
 </template>
-<style scoped lang="scss"></style>
