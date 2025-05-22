@@ -175,6 +175,10 @@ After the group submission, I continued developing the project with a focus on i
 
 I plan to continue improving the application with the following features:
 
+#### Make site fully responsive
+- Add mobile navigation
+- Make components and views responsive
+
 #### Enhanced Admin Interface
 
 - Implement full CRUD functionality in the admin tables with update and delete buttons
